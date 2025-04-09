@@ -78,7 +78,7 @@ import front_vermicompost_50kg from "./front_vermicompost_50kg.png";
 import back_vermicompost_50kg from "./back_vermicompost_50kg.png";
 import organic from "./organic.jpg";
 import p_patanjali from "./p_patanjali.jpg";
-import k_patanjali from "./k_patanjali.jpg";
+import k_patanjali from "./k_Patanjali.jpg";
 import news from "./news.jpeg";
 import gsd_organics_self_work2 from './gsd-organics-self-work2.jpg';
 import gsd_organics_uses_compost_scaled from './gsd-organics-uses-compost-scaled.jpg'
