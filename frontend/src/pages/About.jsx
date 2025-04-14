@@ -99,6 +99,48 @@ const About = () => {
         ))}
       </section>
 
+{/* Video */}
+
+{/* Videos Section */}
+<section className="bg-green-50 py-12 border-t border-gray-200 mb-16">
+  <div className="max-w-6xl mx-auto px-6 text-center">
+    <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-6 animate-fade-in-down">
+      🎥 See Us in Action
+    </h2>
+    <p className="text-gray-700 mb-10 max-w-2xl mx-auto text-lg animate-fade-in">
+      Watch how GSD Organics is making a real difference in farming and sustainability. Our videos showcase our process, impact, and values.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+        <iframe
+          className="w-full aspect-video rounded-2xl"
+          src="https://www.youtube.com/embed/ypnfRxdTEIA?si=YbQl3_ybq0dMNRmI"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+      </div>
+
+      <div className="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+        <iframe
+          className="w-full aspect-video rounded-2xl"
+          src="https://www.youtube.com/embed/QrGLnLzDBr0?si=KMyHTI8iy0yMdmcQ"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+      </div>
+      <div className="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yVu3elwRTrk?si=8NI4ieWMtlu8YVTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div className="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ypnfRxdTEIA?si=JQbvkSJPHJj1zpp_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
       {/* Newsletter Signup */}
       <NewsletterBox />
     </div>

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap");
 @import "tailwindcss";
 
+
 a.active hr {
   display: block;
 }
@@ -18,6 +19,29 @@ a.active hr {
 ::-webkit-scrollbar {
   display: none;
 }
+
+
+/* Testimonal css */
+
+/* Swiper pagination custom styles */
+.swiper-pagination-custom {
+  position: relative;
+  z-index: 10;
+  margin-top: 20px;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet {
+  background-color: #888; /* Light gray for the normal dot */
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+  background-color: #ff7f50; /* Active dot color, e.g., coral */
+}
+
 
 @media (max-width: 640px) {
   a.active {

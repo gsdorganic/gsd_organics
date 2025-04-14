@@ -38,7 +38,6 @@ const Cart = () => {
           const productData = products.find(
             (product) => product._id === item._id
           );
-          console.log(productData.image[0]);
           return (
             <div
               key={index}
@@ -59,7 +58,7 @@ const Cart = () => {
                       {currency}
                       {productData.price}
                     </p>
-                    <p className="px-2 sm:px-3 sm:py-1 border bg-slate-50">
+                    <p className={`px-2 sm:px-3 sm:py-1 border bg-slate-50 ${!item.size ? "hidden" : ""}`}>
                       {item.size}
                     </p>
                   </div>

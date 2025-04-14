@@ -4,6 +4,10 @@ import Hero from "../components/Hero";
 import LatestCollection from "../components/LatestCollection";
 import NewsletterBox from "../components/NewsletterBox";
 import OurPolicy from "../components/OurPolicy";
+import { assets } from "../assets/assets";
+import { LuTreePalm } from "react-icons/lu";
+import Testimonials from "../components/Testimonials";
+import BlogPage from "./BlogPage";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -18,7 +22,62 @@ const Home = () => {
     <div>
       <Hero />
       <LatestCollection />
-      <BestSeller />
+
+    {/* Vermicompost Benefits & Solution Part */}
+    <div className="flex flex-col md:flex-row items-center justify-center gap-12 p-6 md:p-12">
+  <div className="w-full md:w-1/2 relative">
+    {/* Circular Glowing Badge */}
+    <div className="absolute -top-6 -left-6 z-20 w-24 h-24 md:w-28 md:h-28 rounded-full bg-white/30 backdrop-blur-md border border-white/40 
+      flex flex-col items-center justify-center text-green-900 font-extrabold text-xs md:text-sm shadow-[6px_6px_25px_rgba(0,0,0,0.25)] 
+      transform -rotate-6 hover:rotate-0 transition-all duration-300 ease-in-out 
+      before:content-[''] before:absolute before:inset-0 before:rounded-full before:shadow-[0_0_25px_6px_rgba(34,197,94,0.4)] before:z-[-1]">
+      <span className="text-xl md:text-2xl leading-tight">5+</span>
+      <span className="text-[10px] md:text-xs text-center leading-tight">Years Of<br />Experience</span>
+    </div>
+
+    {/* Main Image */}
+    <img
+      className="w-full rounded-2xl shadow-lg object-cover"
+      src={assets.organic}
+      alt="Vermicompost Organic Fertilizer"
+    />
+  </div>
+
+  <div className="w-full md:w-1/2 space-y-6">
+    <h3 className="text-3xl font-bold text-green-800"><LuTreePalm /> Vermicompost Benefits & Solutions</h3>
+    <p className="text-lg text-gray-700">
+      We focus on providing the best organic fertilizers tailored to a wide range of crops and farming styles:
+    </p>
+    <ol className="list-decimal list-inside space-y-2 text-gray-800 font-medium">
+      <li>
+        Fruit trees such as <span className="font-semibold text-green-700">apple, kinnow, pomegranate</span>, and guava.
+      </li>
+      <li>
+        Vegetables including <span className="font-semibold text-green-700">potato, garlic, chilli, cucumbers</span>, tomatoes, and many more.
+      </li>
+      <li>
+        Cash crops such as <span className="font-semibold text-green-700">wheat, rice, sugarcane</span>, and much more.
+      </li>
+      <li>
+        Ideal for <span className="font-semibold text-green-700">polyhouse</span> and <span className="font-semibold text-green-700">greenhouse</span> farming.
+      </li>
+    </ol>
+    <img
+  className="relative bottom-0 md:bottom-[0px] xl:bottom-[-55px] right-0"
+  src={assets.project_bg}
+  alt=""
+/>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+      {/* <BestSeller /> */}
 
       <div className="bg-white py-12 px-6 md:px-16 rounded-2xl shadow-md">
         <div className="text-center mb-10">
@@ -50,6 +109,7 @@ const Home = () => {
         </div>
       </div>
 
+      <Testimonials />
       <OurPolicy />
       <NewsletterBox />
     </div>
