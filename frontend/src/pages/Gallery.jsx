@@ -80,7 +80,7 @@ const Gallery = () => {
             <img
               src={imageUrl}
               alt={`Gallery Image ${index + 1}`}
-              className="w-full h-64 object-cover transition-all duration-500 brightness-75 hover:brightness-100"
+              className="w-full h-64 object-cover transition-all duration-500 sm:brightness-75 hover:brightness-100"
             />
           </div>
         ))}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { assets } from "../assets/assets";
 
 const blogs = [
   {
@@ -7,7 +8,7 @@ const blogs = [
     title: "The Power of Organic Farming",
     description:
       "Explore the benefits of switching to organic farming and how it supports both health and the environment.",
-    image: "https://source.unsplash.com/featured/?organic,plant",
+    image: assets.blog1,
     date: "April 12, 2025",
     author: "Hariom Sharma",
   },
@@ -16,7 +17,7 @@ const blogs = [
     title: "Vermicompost: Nature’s Fertilizer",
     description:
       "Learn how vermicompost can enrich your soil and improve crop yields in the most eco-friendly way.",
-    image: "https://source.unsplash.com/featured/?soil,farming",
+    image: assets.gsd_organics_uses_compost_scaled,
     date: "April 10, 2025",
     author: "Sapna Sharma",
   },
@@ -25,7 +26,7 @@ const blogs = [
     title: "Gau Seva and Sustainability",
     description:
       "How serving cows and using cow-based products contributes to a greener planet and spiritual wellness.",
-    image: "https://source.unsplash.com/featured/?cow,India",
+    image: assets.news,
     date: "April 5, 2025",
     author: "GSD Team",
   },
@@ -34,7 +35,7 @@ const blogs = [
     title: "Why CSR Should Support Rural Health",
     description:
       "A look at why CSR initiatives should focus more on rural hospitals like Gau Seva Dham for real impact.",
-    image: "https://source.unsplash.com/featured/?hospital,India",
+    image: "",
     date: "March 28, 2025",
     author: "Rohit Verma",
   },

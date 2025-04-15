@@ -187,17 +187,18 @@ const Collection = () => {
         </div>
 
         {/* Map Products */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
-          {filterProducts.map((item, index) => (
-            <ProductItem
-              key={index}
-              name={item.name}
-              id={item._id}
-              price={item.price}
-              image={item.image}
-            />
-          ))}
-        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full">
+  {filterProducts.map((item, index) => (
+    <ProductItem
+      key={index}
+      name={item.name}
+      id={item._id}
+      price={item.price}
+      image={item.image}
+    />
+  ))}
+</div>
+
       </div>
     </div>
   );

@@ -2,6 +2,8 @@
 @import "tailwindcss";
 
 
+
+
 a.active hr {
   display: block;
 }
@@ -41,6 +43,7 @@ a.active hr {
 .swiper-pagination-custom .swiper-pagination-bullet-active {
   background-color: #ff7f50; /* Active dot color, e.g., coral */
 }
+
 
 
 @media (max-width: 640px) {

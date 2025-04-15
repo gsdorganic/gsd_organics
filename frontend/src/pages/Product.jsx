@@ -36,7 +36,7 @@ const Product = () => {
               <img
                 key={index}
                 onClick={() => setImage(item)}
-                className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer"
+                className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer border border-black rounded-md"
                 src={item}
                 alt=""
               />
@@ -44,19 +44,23 @@ const Product = () => {
           </div>
 
           <div className="w-full sm:w-[80%]">
-            <img className="w-full h-auto" src={image} alt="" />
+            <img
+              className="w-full h-auto border border-black rounded-lg shadow-md"
+              src={image}
+              alt=""
+            />
           </div>
         </div>
 
-        {/* ----------------Product Info--------------------- */}
+        {/* Product Info */}
         <div className="flex-1">
           <h1 className="font-medium text-2xl mt-2">{productData.name}</h1>
           <div className="flex items-center gap-1 mt-2">
-            <img src={assets.star_icon} alt="" className="w-3 5" />
-            <img src={assets.star_icon} alt="" className="w-3 5" />
-            <img src={assets.star_icon} alt="" className="w-3 5" />
-            <img src={assets.star_dull_icon} alt="" className="w-3 5" />
-            <img src={assets.star_dull_icon} alt="" className="w-3 5" />
+            <img src={assets.star_icon} alt="" className="w-3.5" />
+            <img src={assets.star_icon} alt="" className="w-3.5" />
+            <img src={assets.star_icon} alt="" className="w-3.5" />
+            <img src={assets.star_dull_icon} alt="" className="w-3.5" />
+            <img src={assets.star_dull_icon} alt="" className="w-3.5" />
             <p className="pl-2">(122)</p>
           </div>
           <p className="mt-5 text-3xl font-medium">
@@ -73,7 +77,7 @@ const Product = () => {
                 <button
                   onClick={() => setSize(item)}
                   className={`border py-2 px-4 bg-gray-100 ${
-                    item === size ? "border-orange-500" : ""
+                    item === size ? "border-green-600" : "border-gray-300"
                   }`}
                   key={index}
                 >
@@ -84,20 +88,20 @@ const Product = () => {
           </div>
           <button
             onClick={() => addToCart(productData._id, size)}
-            className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700"
+            className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 text-sm rounded-md"
           >
             ADD TO CART
           </button>
           <hr className="mt-8 sm:w-4/5" />
           <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
-            <p>100% Original Product.</p>
+            <p>100% Organic Product.</p>
             <p>Cash on delivery is available on this product.</p>
-            <p>Easy return and exchange policy within 7 days.</p>
+            <p>Eco-friendly packaging & quick delivery.</p>
           </div>
         </div>
       </div>
 
-      {/* -------------------- Description & Review Section -------------------------------- */}
+      {/* Description & Review Section */}
       <div className="mt-20">
         <div className="flex">
           <b className="border px-5 py-3 text-sm">Description</b>
@@ -105,21 +109,17 @@ const Product = () => {
         </div>
         <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus
-            suscipit eligendi accusantium corporis, molestiae dolor mollitia id
-            veritatis, quod provident maiores magnam ratione. Autem nostrum
-            commodi quas perferendis fugiat voluptatum!
+            Our products are naturally sourced, organic, and made with utmost
+            care for your health and the environment.
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A iusto
-            voluptatibus ducimus maxime repudiandae corrupti, cumque nesciunt,
-            dolorum eaque exercitationem dolorem, temporibus voluptas ad
-            mollitia? Nemo, id alias. Ex, atque.
+            From soil to shelf, we ensure eco-friendly practices at every stage
+            to support sustainability and wellness.
           </p>
         </div>
       </div>
 
-      {/* --------------Display Related Products -------------------- */}
+      {/* Related Products */}
       <RelatedProducts
         category={productData.category}
         subCategory={productData.subCategory}

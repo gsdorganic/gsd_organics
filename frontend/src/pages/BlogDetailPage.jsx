@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { assets } from "../assets/assets";
 
 const blogs = [
   {
@@ -7,7 +8,7 @@ const blogs = [
     title: "The Power of Organic Farming",
     content:
       "Organic farming promotes a healthy environment by avoiding the use of harmful pesticides and fertilizers. It also supports biodiversity, improves soil health, and helps in sustainable farming practices.",
-    image: "https://source.unsplash.com/featured/?organic,plant",
+    image: assets.blog1,
     date: "April 12, 2025",
     author: "Hariom Sharma",
   },
@@ -16,16 +17,16 @@ const blogs = [
     title: "Vermicompost: Nature’s Fertilizer",
     content:
       "Vermicompost is the result of organic matter breaking down in the presence of earthworms. This method produces a nutrient-rich fertilizer that promotes plant growth and soil health without harming the environment.",
-    image: "https://source.unsplash.com/featured/?soil,farming",
+    image: assets.gsd_organics_uses_compost_scaled,
     date: "April 10, 2025",
-    author: "Sapna Sharma",
+    author: "Vishal Sharma",
   },
   {
     id: 3,
     title: "Gau Seva and Sustainability",
     content:
       "By caring for cows and using cow-based products, we not only ensure their well-being but also support a sustainable agricultural system. Cow dung, for example, can be used to produce natural fertilizers and energy.",
-    image: "https://source.unsplash.com/featured/?cow,India",
+    image: assets.news,
     date: "April 5, 2025",
     author: "GSD Team",
   },
@@ -45,17 +46,36 @@ const BlogDetailPage = () => {
   const blog = blogs.find((b) => b.id === parseInt(id));
 
   return (
-    <section className="bg-white py-16">
-      <div className="max-w-4xl mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-4">{blog?.title}</h1>
-        <div className="flex justify-center mb-6">
-          <img src={blog?.image} alt={blog?.title} className="h-64 w-full object-cover rounded-xl" />
+    <section className="bg-white min-h-screen py-16 px-4">
+      <div className="max-w-5xl mx-auto backdrop-blur-md bg-white/60 border border-gray-200 shadow-xl rounded-3xl p-8 md:p-12 transition duration-300 ease-in-out">
+        {/* Title */}
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-800 mb-6">
+          {blog?.title}
+        </h1>
+
+        {/* Image */}
+        <div className="rounded-2xl overflow-hidden shadow-lg mb-8">
+          <img
+            src={blog?.image}
+            alt={blog?.title}
+            className="w-full h-full object-cover"
+          />
         </div>
-        <div className="text-gray-600 mb-4">
-          <p><strong>By:</strong> {blog?.author}</p>
-          <p><strong>Date:</strong> {blog?.date}</p>
+
+        {/* Meta Info */}
+        <div className="flex flex-wrap justify-between text-sm text-gray-600 mb-6">
+          <span className="bg-green-100 text-green-800 px-4 py-1 rounded-full font-medium">
+            ✍️ {blog?.author}
+          </span>
+          <span className="bg-gray-100 text-gray-600 px-4 py-1 rounded-full">
+            📅 {blog?.date}
+          </span>
         </div>
-        <p className="text-lg leading-relaxed">{blog?.content}</p>
+
+        {/* Content */}
+        <p className="text-lg text-gray-700 leading-relaxed tracking-wide">
+          {blog?.content}
+        </p>
       </div>
     </section>
   );

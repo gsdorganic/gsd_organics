@@ -97,6 +97,7 @@ import eleven from './11.jpg';
 import about from './about.jpg'
 import vermicompost from './vermicompost.jpg'
 import project_bg from './project-bg.png'
+import blog1 from './blog1.jpeg'
 
 export const assets = {
   logo,
@@ -139,7 +140,8 @@ ten,
 eleven,
 about,
 vermicompost,
-project_bg
+project_bg,
+blog1
 
 };
 
