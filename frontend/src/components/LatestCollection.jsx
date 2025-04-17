@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
+import { NavLink } from "react-router-dom";
 
 const LatestCollection = () => {
   const { products } = useContext(ShopContext);
@@ -34,6 +35,13 @@ const LatestCollection = () => {
           />
         ))}
       </div>
+      <div className="flex justify-center mt-10">
+        <NavLink to="/collection" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+  <button className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white text-sm sm:text-base font-semibold rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+    Explore All Products
+  </button></NavLink>
+</div>
+
     </div>
   );
 };

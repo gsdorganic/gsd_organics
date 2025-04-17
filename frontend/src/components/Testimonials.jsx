@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 
 const testimonials = [
   {
-    name: "Ananya Sharma",
+    name: "Yudhister Sharma",
     role: "Organic Farmer",
     message:
       "GSD Organics products are amazing! My farm's yield has improved significantly. Highly recommended!",
@@ -36,8 +36,19 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger the animation when the component loads or refreshes
+    setVisible(true);
+  }, []);
+
   return (
-    <section className="py-16 bg-white">
+    <section
+      className={`py-16 bg-white transition-opacity duration-1000 ease-in-out ${
+        visible ? "opacity-100" : "opacity-0"
+      }`}
+    >
       <h2 className="text-3xl font-bold text-center mb-12">What People Say</h2>
       <div className="max-w-6xl mx-auto px-4">
         <Swiper

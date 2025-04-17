@@ -3,6 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import { assets } from "../assets/assets";
 import CartTotal from "../components/CartTotal";
+import { motion } from "framer-motion"; // Import framer motion
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity, navigate } =
@@ -30,18 +31,31 @@ const Cart = () => {
 
   return (
     <div className="border-t pt-14">
-      <div className="text-2xl mb-3">
+      <motion.div
+        className="text-2xl mb-3"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
         <Title text1={"YOUR"} text2={"CART"} />
-      </div>
-      <div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+      >
         {cartData.map((item, index) => {
           const productData = products.find(
             (product) => product._id === item._id
           );
           return (
-            <div
+            <motion.div
               key={index}
               className="py-4 border-t text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
             >
               <div className="flex items-start gap-6">
                 <img
@@ -58,7 +72,11 @@ const Cart = () => {
                       {currency}
                       {productData.price}
                     </p>
-                    <p className={`px-2 sm:px-3 sm:py-1 border bg-slate-50 ${!item.size ? "hidden" : ""}`}>
+                    <p
+                      className={`px-2 sm:px-3 sm:py-1 border bg-slate-50 ${
+                        !item.size ? "hidden" : ""
+                      }`}
+                    >
                       {item.size}
                     </p>
                   </div>
@@ -79,29 +97,39 @@ const Cart = () => {
                 min={1}
                 defaultValue={item.quantity}
               />
-              <img
+              <motion.img
                 onClick={() => updateQuantity(item._id, item.size, 0)}
                 className="w-4 mr-4 sm:w-5 cursor-pointer"
                 src={assets.bin_icon}
                 alt=""
+                whileHover={{ scale: 1.2 }} // Add hover animation to the delete icon
+                transition={{ duration: 0.3 }}
               />
-            </div>
+            </motion.div>
           );
         })}
-      </div>
-      <div className="flex justify-end my-20">
+      </motion.div>
+
+      <motion.div
+        className="flex justify-end my-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+      >
         <div className="w-full sm:w-[450px]">
           <CartTotal />
           <div className="w-full text-end">
-            <button
+            <motion.button
               onClick={() => navigate("/place-order")}
               className="bg-black text-white text-sm my-8 px-8 py-3"
+              whileHover={{ scale: 1.05 }} // Add hover effect to the checkout button
+              transition={{ duration: 0.2 }}
             >
               PROCEED TO CHECKOUT
-            </button>
+            </motion.button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

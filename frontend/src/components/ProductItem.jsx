@@ -8,10 +8,11 @@ const ProductItem = ({ id, image, name, price }) => {
   return (
     <Link
       to={`/product/${id}`}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-4 text-gray-800 w-full max-w-sm"
     >
       {/* Product Image with black border */}
-      <div className="overflow-hidden rounded-lg border border-black">
+      <div className="overflow-hidden rounded-lg border border-green-600">
         <img
           src={image[0]}
           alt={name}

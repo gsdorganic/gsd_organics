@@ -2,6 +2,7 @@ import { assets } from "../assets/assets";
 import Title from "../components/Title";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";  // Import framer motion
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -45,7 +46,12 @@ const Contact = () => {
       </div>
 
       {/* Info Section */}
-      <div className="flex flex-col md:flex-row gap-12 justify-center items-start mb-24">
+      <motion.div
+        className="flex flex-col md:flex-row gap-12 justify-center items-start mb-24"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
         <img
           className="w-full md:max-w-sm rounded-xl shadow-xl object-cover"
           src={assets.organic}
@@ -71,10 +77,15 @@ const Contact = () => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Contact Form */}
-      <div className="max-w-4xl mx-auto">
+      <motion.div
+        className="max-w-4xl mx-auto"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+      >
         <h3 className="text-3xl font-bold text-center text-gray-800 mb-10">
           Get in Touch 💬
         </h3>
@@ -82,10 +93,13 @@ const Contact = () => {
           onSubmit={handleSubmit}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-8 shadow-xl rounded-xl border border-gray-100"
         >
-          <div className="flex flex-col">
-            <label className="text-sm font-medium text-gray-700 mb-2">
-              Name
-            </label>
+          <motion.div
+            className="flex flex-col"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <label className="text-sm font-medium text-gray-700 mb-2">Name</label>
             <input
               type="text"
               name="name"
@@ -95,12 +109,15 @@ const Contact = () => {
               placeholder="Your name"
               className="border border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
             />
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col">
-            <label className="text-sm font-medium text-gray-700 mb-2">
-              Email
-            </label>
+          <motion.div
+            className="flex flex-col"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <label className="text-sm font-medium text-gray-700 mb-2">Email</label>
             <input
               type="email"
               name="email"
@@ -110,12 +127,15 @@ const Contact = () => {
               placeholder="you@example.com"
               className="border border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
             />
-          </div>
+          </motion.div>
 
-          <div className="col-span-1 md:col-span-2 flex flex-col">
-            <label className="text-sm font-medium text-gray-700 mb-2">
-              Message
-            </label>
+          <motion.div
+            className="col-span-1 md:col-span-2 flex flex-col"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <label className="text-sm font-medium text-gray-700 mb-2">Message</label>
             <textarea
               name="message"
               value={formData.message}
@@ -125,18 +145,23 @@ const Contact = () => {
               placeholder="Write your message..."
               className="border border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 transition resize-none"
             ></textarea>
-          </div>
+          </motion.div>
 
-          <div className="col-span-1 md:col-span-2 text-center">
+          <motion.div
+            className="col-span-1 md:col-span-2 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <button
               type="submit"
               className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg"
             >
               Send Message
             </button>
-          </div>
+          </motion.div>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };

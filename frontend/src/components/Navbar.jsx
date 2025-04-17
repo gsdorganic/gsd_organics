@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { useContext, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -22,145 +23,132 @@ const Navbar = () => {
     setCartItems({});
   };
 
+  const mobileMenuVariants = {
+    hidden: { x: "100%" },
+    visible: { x: 0 },
+    exit: { x: "100%" },
+  };
+
   return (
-    <div className="flex items-center justify-between px-5 font-medium">
+    <motion.div
+      className="flex items-center justify-between px-5 font-medium sticky top-0 bg-white z-40"
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
+      {/* Logo */}
       <Link to="/">
-        <img src={assets.gsdorganics_Logo} alt="" className="w-24" />
+        <img src={assets.gsdorganics_Logo} alt="Logo" className="w-24" />
       </Link>
+
+      {/* Desktop Nav Links */}
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
-        <NavLink to="/" className="flex flex-col items-center gap-1">
-          <p>HOME</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
-        </NavLink>
-        <NavLink to="/collection" className="flex flex-col items-center gap-1">
-          <p>PRODUCTS</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
-        </NavLink>
-        <NavLink to="/about" className="flex flex-col items-center gap-1">
-          <p>ABOUT</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
-        </NavLink>
-        <NavLink to="/Gallery" className="flex flex-col items-center gap-1">
-          <p>GALLERY</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
-        </NavLink>
-        <NavLink to="/blog" className="flex flex-col items-center gap-1">
-          <p>BLOGS</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
-        </NavLink>
-        <NavLink to="/contact" className="flex flex-col items-center gap-1">
-          <p>CONTACT</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
-        </NavLink>
+        {[
+          { path: "/", label: "HOME" },
+          { path: "/collection", label: "PRODUCTS" },
+          { path: "/about", label: "ABOUT" },
+          { path: "/Gallery", label: "GALLERY" },
+          { path: "/blog", label: "BLOGS" },
+          { path: "/contact", label: "CONTACT" },
+        ].map((link) => (
+          <NavLink key={link.path} to={link.path} className="flex flex-col items-center gap-1">
+            <p>{link.label}</p>
+            <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+          </NavLink>
+        ))}
       </ul>
 
+      {/* Right Icons */}
       <div className="flex items-center gap-6">
+        {/* Search Icon */}
         <img
           onClick={() => setShowSearch(true)}
           src={assets.search_icon}
-          className="w-5 cursor-pointer"
-          alt=""
+          className={`w-5 cursor-pointer transition-opacity duration-500 ${
+            location.pathname.includes("collection")
+              ? "opacity-100"
+              : "opacity-0 pointer-events-none"
+          }`}
+          alt="Search"
         />
 
+        {/* Profile */}
         <div className="group relative">
           <img
             onClick={() => (token ? null : navigate("/login"))}
             src={assets.profile_icon}
-            alt=""
+            alt="Profile"
             className="w-5 cursor-pointer"
           />
-
-          {/*--------------- Dropdown Menu ------------------*/}
           {token && (
-            <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
+            <div className="group-hover:block hidden absolute right-0 pt-4 z-50">
               <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
                 <p onClick={() => navigate("/profile")} className="cursor-pointer hover:text-black">My Profile</p>
-                <p
-                  onClick={() => navigate("/orders")}
-                  className="cursor-pointer hover:text-black"
-                >
-                  Orders
-                </p>
-                <p onClick={logout} className="cursor-pointer hover:text-black">
-                  Logout
-                </p>
+                <p onClick={() => navigate("/orders")} className="cursor-pointer hover:text-black">Orders</p>
+                <p onClick={logout} className="cursor-pointer hover:text-black">Logout</p>
               </div>
             </div>
           )}
         </div>
+
+        {/* Cart Icon */}
         <Link to="/cart" className="relative">
-          <img src={assets.cart_icon} className="w-5 min-w-5" alt="" />
+          <img src={assets.cart_icon} className="w-5 min-w-5" alt="Cart" />
           <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
             {getCartCount()}
           </p>
         </Link>
+
+        {/* Hamburger Icon */}
         <img
           src={assets.menu_icon}
           className="w-5 cursor-pointer sm:hidden"
-          alt=""
+          alt="Menu"
           onClick={() => setVisible(true)}
         />
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${
-          visible ? "w-full" : "w-0"
-        }`}
-      >
-        <div className="flex flex-col text-gray-600">
-          <div
-            onClick={() => setVisible(false)}
-            className="flex items-center gap-4 p-3 cursor-pointer"
+      <AnimatePresence>
+        {visible && (
+          <motion.div
+            className="fixed top-0 right-0 w-full h-screen bg-white z-[9999]"
+            variants={mobileMenuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            transition={{ duration: 0.4, ease: "easeInOut" }}
           >
-            <img src={assets.dropdown_icon} className="h-4 rotate-180" alt="" />
-            <p>Back</p>
-          </div>
-          <NavLink
-            onClick={() => setVisible(false)}
-            className="py-2 pl-6 border"
-            to={"/"}
-          >
-            HOME
-          </NavLink>
-          <NavLink
-            onClick={() => setVisible(false)}
-            className="py-2 pl-6 border"
-            to={"/collection"}
-          >
-            COLLECTION
-          </NavLink>
-          <NavLink
-            onClick={() => setVisible(false)}
-            className="py-2 pl-6 border"
-            to={"/Gallery"}
-          >
-            GALLERY
-          </NavLink>
-          <NavLink
-            onClick={() => setVisible(false)}
-            className="py-2 pl-6 border"
-            to={"/about"}
-          >
-            ABOUT
-          </NavLink>
-          <NavLink
-            onClick={() => setVisible(false)}
-            className="py-2 pl-6 border"
-            to={"/blog"}
-          >
-            BLOGS
-          </NavLink>
-          <NavLink
-            onClick={() => setVisible(false)}
-            className="py-2 pl-6 border"
-            to={"/contact"}
-          >
-            CONTACT
-          </NavLink>
-        </div>
-      </div>
-    </div>
+            <div className="flex flex-col text-gray-600 h-full">
+              <div
+                onClick={() => setVisible(false)}
+                className="flex items-center gap-4 p-3 cursor-pointer"
+              >
+                <img src={assets.dropdown_icon} className="h-4 rotate-180" alt="Back" />
+                <p>Back</p>
+              </div>
+              {[
+                { path: "/", label: "HOME" },
+                { path: "/collection", label: "COLLECTION" },
+                { path: "/Gallery", label: "GALLERY" },
+                { path: "/about", label: "ABOUT" },
+                { path: "/blog", label: "BLOGS" },
+                { path: "/contact", label: "CONTACT" },
+              ].map((link) => (
+                <NavLink
+                  key={link.path}
+                  onClick={() => setVisible(false)}
+                  className="py-2 pl-6 border"
+                  to={link.path}
+                >
+                  {link.label}
+                </NavLink>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 };
 
