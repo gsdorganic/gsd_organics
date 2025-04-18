@@ -98,6 +98,10 @@ import about from './about.jpg'
 import vermicompost from './vermicompost.jpg'
 import project_bg from './project-bg.png'
 import blog1 from './blog1.jpeg'
+import earth2 from "./earth2.jpg";
+import earth3 from "./earth3.jpg";
+import earth4 from "./earth4.jpg";
+import earth5 from "./earth5.jpg";
 
 export const assets = {
   logo,
@@ -120,6 +124,10 @@ export const assets = {
   cross_icon,
   gsdorganics_Logo,
   earth,
+  earth2,
+  earth3,
+  earth4,
+  earth5,
   organic,
   p_patanjali,
   k_patanjali,

@@ -3,6 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../components/Title";
 import ProductItem from "../components/ProductItem";
+import { motion } from "framer-motion"; // Framer Motion
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -93,6 +94,7 @@ const Collection = () => {
             alt=""
           />
         </p>
+
         {/* Catergory Filter */}
         <div
           className={`border border-gray-300 pl-5 py-3 mt-6 ${
@@ -130,45 +132,6 @@ const Collection = () => {
             </p>
           </div>
         </div>
-
-        {/* SubCategory Filter */}
-
-        {/* <div
-          className={`border border-gray-300 pl-5 py-3 my-5 ${
-            showFilter ? "" : "hidden"
-          } sm:block`}
-        >
-          <p className="mb-3 text-sm font-medium">TYPE</p>
-          <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-            <p className="flex gap-2">
-              <input
-                className="w-3"
-                type="checkbox"
-                value={"Topwear"}
-                onChange={toggleSubCatergory}
-              />{" "}
-              Topwear
-            </p>
-            <p className="flex gap-2">
-              <input
-                className="w-3"
-                type="checkbox"
-                value={"Bottomwear"}
-                onChange={toggleSubCatergory}
-              />{" "}
-              Bottomwear
-            </p>
-            <p className="flex gap-2">
-              <input
-                className="w-3"
-                type="checkbox"
-                value={"Winterwear"}
-                onChange={toggleSubCatergory}
-              />{" "}
-              Winterwear
-            </p>
-          </div>
-        </div> */}
       </div>
 
       {/* Right Side */}
@@ -186,19 +149,23 @@ const Collection = () => {
           </select>
         </div>
 
-        {/* Map Products */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full">
-  {filterProducts.map((item, index) => (
-    <ProductItem
-      key={index}
-      name={item.name}
-      id={item._id}
-      price={item.price}
-      image={item.image}
-    />
-  ))}
-</div>
-
+        {/* Animated Grid - fade in from bottom */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          {filterProducts.map((item, index) => (
+            <ProductItem
+              key={index}
+              name={item.name}
+              id={item._id}
+              price={item.price}
+              image={item.image}
+            />
+          ))}
+        </motion.div>
       </div>
     </div>
   );

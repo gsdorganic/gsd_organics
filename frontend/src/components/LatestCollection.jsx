@@ -17,8 +17,7 @@ const LatestCollection = () => {
       <div className="text-center py-8 text-3xl">
         <Title text1={"LATEST"} text2={"PRODUCTS"} />
         <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
-          delectus nesciunt repudiandae enim ratione
+        Nature has a new story to tell — and it starts with our latest organic creations. Grown responsibly, harvested with care, and made for mindful living.
         </p>
       </div>
 
