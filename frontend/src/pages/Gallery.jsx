@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { assets } from "../assets/assets";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Title from "../components/Title";
+import { motion } from "framer-motion";
 
 const Gallery = () => {
   const images = [
@@ -63,20 +64,31 @@ const Gallery = () => {
         <Title text1={"OUR"} text2={"GALLERY"} />
       </div>
 
-      <div className="p-6 md:p-10 bg-white text-gray-800">
+      <motion.div
+        className="p-6 md:p-10 bg-white text-gray-800"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {images.map((imageUrl, index) => (
-            <div
+            <motion.div
               key={index}
-              className="overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-transform duration-300 transform hover:scale-105"
+              className="overflow-hidden rounded-xl shadow-lg cursor-pointer"
               onClick={() => openModal(index)}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 8px 24px rgba(0,0,0,0.2)",
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <img
                 src={imageUrl}
                 alt={`Gallery Image ${index + 1}`}
-                className="w-full h-64 object-cover transition-all duration-300"
+                className="w-full h-64 object-cover transition-transform duration-300"
               />
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -100,7 +112,7 @@ const Gallery = () => {
             <img
               src={images[activeIndex]}
               alt="Fullscreen"
-              className="max-w-full max-h-[85vh] rounded-3xl shadow-2xl transition-all duration-500 transform scale-95 opacity-100"
+              className="max-w-full max-h-[85vh] rounded-3xl shadow-2xl transition-all duration-500"
             />
 
             <button
@@ -111,7 +123,7 @@ const Gallery = () => {
             </button>
           </div>
         )}
-      </div>
+      </motion.div>
     </>
   );
 };

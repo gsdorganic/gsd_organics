@@ -5,38 +5,14 @@ import NewsletterBox from "../components/NewsletterBox";
 import Testimonials from "../components/Testimonials";
 import { motion } from "framer-motion";
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
+// Fade-in animation variant
+const fadeInVariant = {
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
-const fadeInLeft = {
-  hidden: { opacity: 0, x: -50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, type: "spring", stiffness: 60 },
-  },
-};
-
-const fadeInRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, type: "spring", stiffness: 60 },
-  },
-};
-
-const staggerContainer = {
-  hidden: {},
-  visible: {
     transition: {
-      staggerChildren: 0.2,
+      duration: 1,
+      ease: "easeOut",
     },
   },
 };
@@ -63,28 +39,33 @@ const reasons = [
 const About = () => {
   return (
     <div className="bg-white text-gray-700">
-      <div className="w-full overflow-hidden">
-        <motion.img
+
+      {/* Hero Image */}
+      <motion.div
+        className="w-full overflow-hidden"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <img
           src={assets.about}
           alt="About GSD Organics"
           className="w-full h-auto md:h-[70vh] object-cover object-center rounded-b-3xl shadow-lg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
         />
-      </div>
+      </motion.div>
 
+      {/* Introduction */}
       <motion.section
         className="max-w-6xl mx-auto py-12 px-6 text-center"
-        variants={fadeInUp}
+        variants={fadeInVariant}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-8">
           🌱 GSD Organics – Your Green Partner in Growth
         </h2>
-
         <p className="text-lg leading-relaxed mb-6 text-left max-w-4xl mx-auto text-gray-800">
           <strong>Established in the summer of 2020</strong>, GSD Organics has quickly become a
           <span className="text-green-600 font-semibold"> trusted leader</span> in premium organic vermicompost production.
@@ -93,48 +74,38 @@ const About = () => {
           <span className="italic">To nurture your plants naturally.</span>
         </p>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left">
           {features.map((item, i) => (
-            <motion.div
+            <div
               key={i}
-              variants={fadeInUp}
               className="bg-green-50 rounded-2xl p-6 shadow-md hover:shadow-xl border border-green-200 transition duration-300"
             >
               <h4 className="font-bold text-green-800 text-lg mb-2">{item.icon} {item.title}</h4>
               <p className="text-gray-600">{item.desc}</p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </motion.section>
 
+      {/* About Us Title */}
       <div className="text-2xl text-center pt-8 border-t border-gray-200">
         <Title text1="ABOUT" text2="US" />
       </div>
 
-      <section className="max-w-6xl mx-auto my-12 px-6 flex flex-col md:flex-row items-center gap-10">
-        <motion.img
+      {/* About Image and Description */}
+      <motion.section
+        className="max-w-6xl mx-auto my-12 px-6 flex flex-col md:flex-row items-center gap-10"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <img
           className="w-full md:max-w-[450px] rounded-2xl shadow-xl object-cover"
           src={assets.vermicompost}
           alt="About Section"
-          variants={fadeInLeft}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
         />
-
-        <motion.div
-          className="flex flex-col gap-6 text-gray-700 md:w-2/3 text-lg"
-          variants={fadeInRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+        <div className="flex flex-col gap-6 text-gray-700 md:w-2/3 text-lg">
           <p>
             We are passionate about sustainable living and natural growth. Our vision is rooted in tradition and driven by innovation.
           </p>
@@ -147,35 +118,43 @@ const About = () => {
               To promote chemical-free agriculture by providing affordable, effective, and premium-quality organic fertilizers.
             </p>
           </div>
-        </motion.div>
-      </section>
+        </div>
+      </motion.section>
 
+      {/* Why Choose Us */}
       <div className="text-xl py-8 border-t border-gray-200 text-center">
         <Title text1="WHY" text2="CHOOSE US" />
       </div>
 
       <motion.section
         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6 mb-20"
-        variants={staggerContainer}
+        variants={fadeInVariant}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         {reasons.map((card, idx) => (
-          <motion.div
+          <div
             key={idx}
-            variants={fadeInUp}
             className="border border-green-300 bg-green-50 px-8 py-10 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
           >
             <h4 className="text-lg font-bold mb-3 text-green-800">{card.title}</h4>
             <p>{card.content}</p>
-          </motion.div>
+          </div>
         ))}
       </motion.section>
 
+      {/* Testimonials */}
       <Testimonials />
 
-      <section className="bg-green-50 py-12 border-t border-gray-200 mb-16">
+      {/* Videos */}
+      <motion.section
+        className="bg-green-50 py-12 border-t border-gray-200 mb-16"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-6">
             🎥 See Us in Action
@@ -186,14 +165,9 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {videoUrls.map((url, i) => (
-              <motion.div
+              <div
                 key={i}
                 className="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.2 }}
-                variants={i % 2 === 0 ? fadeInLeft : fadeInRight}
               >
                 <iframe
                   className="w-full aspect-video rounded-2xl"
@@ -202,12 +176,13 @@ const About = () => {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 ></iframe>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
+      {/* Newsletter Box */}
       <NewsletterBox />
     </div>
   );

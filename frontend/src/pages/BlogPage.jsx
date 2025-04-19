@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const blogs = [
   {
@@ -69,54 +69,42 @@ const BlogPage = () => {
           Dive into our articles to learn more about organic farming, vermicomposting, sustainability, and our mission at Gau Seva Dham.
         </p>
 
-        <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.2,
-              },
-            },
-          }}
-        >
-          {blogs.map((blog) => (
-            <motion.div
-              key={blog.id}
-              className="bg-white shadow-md rounded-2xl overflow-hidden flex flex-col"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { type: "spring", stiffness: 120, damping: 25 },
-                },
-              }}
-            >
-              <motion.img
-                src={blog.image || "https://via.placeholder.com/400x300"}
-                alt={blog.title}
-                className="h-48 w-full object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
-                <p className="text-gray-600 text-sm mb-4 flex-grow">{blog.description}</p>
-                <div className="text-gray-500 text-xs">
-                  <p>{blog.date}</p>
-                  <p>By {blog.author}</p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogs.map((blog) => {
+            const ref = useRef(null);
+            const inView = useInView(ref, { once: true, margin: "-100px" });
+
+            return (
+              <motion.div
+                ref={ref}
+                key={blog.id}
+                className="bg-white shadow-md rounded-2xl overflow-hidden flex flex-col"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ type: "spring", stiffness: 100, damping: 20 }}
+              >
+                <motion.img
+                  src={blog.image || "https://via.placeholder.com/400x300"}
+                  alt={blog.title}
+                  className="h-48 w-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <div className="p-6 flex flex-col flex-grow">
+                  <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
+                  <p className="text-gray-600 text-sm mb-4 flex-grow">{blog.description}</p>
+                  <div className="text-gray-500 text-xs">
+                    <p>{blog.date}</p>
+                    <p>By {blog.author}</p>
+                  </div>
+                  <Link to={`/blog/${blog.id}`} className="text-blue-500 mt-4 hover:underline">
+                    Read More
+                  </Link>
                 </div>
-                <Link to={`/blog/${blog.id}`} className="text-blue-500 mt-4 hover:underline">
-                  Read More
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

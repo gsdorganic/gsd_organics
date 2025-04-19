@@ -1,8 +1,8 @@
 import { assets } from "../assets/assets";
 import Title from "../components/Title";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { toast } from "react-toastify";
-import { motion } from "framer-motion";  // Import framer motion
+import { motion, useInView } from "framer-motion";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -38,18 +38,32 @@ const Contact = () => {
     }
   };
 
+  // Refs for scroll animations
+  const infoRef = useRef(null);
+  const formRef = useRef(null);
+
+  const infoInView = useInView(infoRef, { once: true, margin: "-100px" });
+  const formInView = useInView(formRef, { once: true, margin: "-100px" });
+
   return (
     <div className="pt-14 px-4 md:px-10">
       {/* Title */}
-      <div className="text-center mb-14">
+      <motion.div
+        className="text-center mb-14"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <Title text1="CONTACT" text2="US" />
-      </div>
+      </motion.div>
 
       {/* Info Section */}
       <motion.div
+        ref={infoRef}
         className="flex flex-col md:flex-row gap-12 justify-center items-start mb-24"
         initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
+        animate={infoInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <img
@@ -81,10 +95,11 @@ const Contact = () => {
 
       {/* Contact Form */}
       <motion.div
+        ref={formRef}
         className="max-w-4xl mx-auto"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={formInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 1, ease: "easeOut" }}
       >
         <h3 className="text-3xl font-bold text-center text-gray-800 mb-10">
           Get in Touch 💬
@@ -93,12 +108,7 @@ const Contact = () => {
           onSubmit={handleSubmit}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-8 shadow-xl rounded-xl border border-gray-100"
         >
-          <motion.div
-            className="flex flex-col"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
+          <div className="flex flex-col">
             <label className="text-sm font-medium text-gray-700 mb-2">Name</label>
             <input
               type="text"
@@ -109,14 +119,9 @@ const Contact = () => {
               placeholder="Your name"
               className="border border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
             />
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="flex flex-col"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
+          <div className="flex flex-col">
             <label className="text-sm font-medium text-gray-700 mb-2">Email</label>
             <input
               type="email"
@@ -127,14 +132,9 @@ const Contact = () => {
               placeholder="you@example.com"
               className="border border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
             />
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="col-span-1 md:col-span-2 flex flex-col"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
+          <div className="col-span-1 md:col-span-2 flex flex-col">
             <label className="text-sm font-medium text-gray-700 mb-2">Message</label>
             <textarea
               name="message"
@@ -145,21 +145,16 @@ const Contact = () => {
               placeholder="Write your message..."
               className="border border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 transition resize-none"
             ></textarea>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="col-span-1 md:col-span-2 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
+          <div className="col-span-1 md:col-span-2 text-center">
             <button
               type="submit"
               className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg"
             >
               Send Message
             </button>
-          </motion.div>
+          </div>
         </form>
       </motion.div>
     </div>
