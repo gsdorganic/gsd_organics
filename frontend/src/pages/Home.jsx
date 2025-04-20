@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import Hero from "../components/Hero";
 import LatestCollection from "../components/LatestCollection";
 import NewsletterBox from "../components/NewsletterBox";
@@ -22,24 +21,12 @@ const Home = () => {
       <Hero />
 
       {/* Latest Collection */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: false, amount: 0.2 }}
-        className="px-4 py-10 md:px-12 lg:px-16"
-      >
+      <section className="px-4 py-10 md:px-12 lg:px-16">
         <LatestCollection />
-      </motion.section>
+      </section>
 
       {/* Vermicompost Benefits */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: false, amount: 0.2 }}
-        className="flex flex-col md:flex-row items-center justify-center gap-12 p-6 md:p-12"
-      >
+      <section className="flex flex-col md:flex-row items-center justify-center gap-12 p-6 md:p-12">
         {/* Image Block */}
         <div className="w-full md:w-1/2 relative">
           <div className="absolute -top-6 -left-6 z-10 w-24 h-24 md:w-28 md:h-28 rounded-full bg-white/30 backdrop-blur-md border border-white/40 
@@ -76,16 +63,10 @@ const Home = () => {
             alt=""
           />
         </div>
-      </motion.section>
+      </section>
 
       {/* About GSD Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: false, amount: 0.2 }}
-        className="bg-white py-12 px-6 md:px-16 rounded-2xl shadow-md"
-      >
+      <section className="bg-white py-12 px-6 md:px-16 rounded-2xl shadow-md">
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-green-700 tracking-wide">
             <span>ABOUT </span>
@@ -111,37 +92,22 @@ const Home = () => {
         <div className="text-right mt-8 text-gray-600 italic font-medium">
           – T.R. SHARMA, OWNER
         </div>
-      </motion.section>
+      </section>
 
       {/* Testimonials */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: false, amount: 0.2 }}
-      >
+      <section>
         <Testimonials />
-      </motion.section>
+      </section>
 
       {/* Our Policy */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: false, amount: 0.2 }}
-      >
+      <section>
         <OurPolicy />
-      </motion.section>
+      </section>
 
       {/* Newsletter */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: false, amount: 0.2 }}
-      >
+      <section>
         <NewsletterBox />
-      </motion.section>
+      </section>
     </div>
   );
 };
