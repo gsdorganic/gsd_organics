@@ -15,14 +15,21 @@ const loginUser = async (req, res) => {
     const user = await userModel.findOne({ email });
 
     if (!user) {
-      return res.json({ success: false, message: "User donesn't exist" });
+      return res.json({ success: false, message: "User doesn't exist" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (isMatch) {
       const token = createToken(user._id);
-      res.json({ success: true, token });
+      res.json({
+        success: true,
+        token,
+        user: {
+          name: user.name,
+          email: user.email,
+        },
+      });
     } else {
       res.json({ success: false, message: "Invalid credentials" });
     }
@@ -71,7 +78,10 @@ const registerUser = async (req, res) => {
     const user = await newUser.save();
 
     const token = createToken(user._id);
-    res.json({ success: true, token });
+    res.json({ success: true, token, user: {
+      name: user.name,
+      email: user.email,
+    }, });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
@@ -88,7 +98,7 @@ const adminLogin = async (req, res) => {
       password === process.env.ADMIN_PASSWORD
     ) {
       const token = jwt.sign(email + password, process.env.JWT_SECRET);
-      res.json({ success: true, token });
+      res.json({ success: true, token  });
     } else {
       res.json({ success: false, message: "Invalid credentials" });
     }

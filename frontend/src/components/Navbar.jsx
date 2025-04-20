@@ -1,11 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import { assets } from "../assets/assets";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
+  const [showProfileOptions, setShowProfileOptions] = useState(false);
+  const profileRef = useRef(null);
 
   const {
     setShowSearch,
@@ -14,14 +16,34 @@ const Navbar = () => {
     token,
     setToken,
     setCartItems,
+    setUser,
+    setUserEmail,
   } = useContext(ShopContext);
 
   const logout = () => {
     navigate("/login");
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("userEmail");
+    setUser("");
+    setUserEmail("");
     setToken("");
     setCartItems({});
   };
+
+  // Close profile dropdown when clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setShowProfileOptions(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const mobileMenuVariants = {
     hidden: { x: "100%" },
@@ -72,20 +94,54 @@ const Navbar = () => {
           alt="Search"
         />
 
-        {/* Profile */}
-        <div className="group relative">
+        {/* Profile Icon & Dropdown */}
+        <div className="group relative" ref={profileRef}>
           <img
-            onClick={() => (token ? null : navigate("/login"))}
+            onClick={() => {
+              if (!token) {
+                navigate("/login");
+              } else {
+                setShowProfileOptions((prev) => !prev);
+              }
+            }}
             src={assets.profile_icon}
             alt="Profile"
             className="w-5 cursor-pointer"
           />
           {token && (
-            <div className="group-hover:block hidden absolute right-0 pt-4 z-50">
+            <div
+              className={`absolute right-0 pt-4 z-50 ${
+                showProfileOptions ? "block" : "hidden"
+              } group-hover:block`}
+            >
               <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-                <p onClick={() => navigate("/profile")} className="cursor-pointer hover:text-black">My Profile</p>
-                <p onClick={() => navigate("/orders")} className="cursor-pointer hover:text-black">Orders</p>
-                <p onClick={logout} className="cursor-pointer hover:text-black">Logout</p>
+                <p
+                  onClick={() => {
+                    setShowProfileOptions(false);
+                    navigate("/profile");
+                  }}
+                  className="cursor-pointer hover:text-black"
+                >
+                  My Profile
+                </p>
+                <p
+                  onClick={() => {
+                    setShowProfileOptions(false);
+                    navigate("/orders");
+                  }}
+                  className="cursor-pointer hover:text-black"
+                >
+                  Orders
+                </p>
+                <p
+                  onClick={() => {
+                    setShowProfileOptions(false);
+                    logout();
+                  }}
+                  className="cursor-pointer hover:text-black"
+                >
+                  Logout
+                </p>
               </div>
             </div>
           )}

@@ -1,26 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ShopContext } from "../context/ShopContext";
+import { motion } from "framer-motion";
 
 const Profile = () => {
-  const user = {
-    name: "Hariom Sharma",
-    email: "hariomsharmagsd@gmail.com",
-    avatar: "https://i.pravatar.cc/150?img=3", // Placeholder avatar image
-  };
+  const { user, userEmail } = useContext(ShopContext);
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="bg-white rounded-2xl shadow-lg p-8 max-w-md w-full text-center">
-        <img
-          src={user.avatar}
-          alt="User Avatar"
-          className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-green-500"
-        />
-        <h2 className="text-2xl font-bold text-gray-800 mb-1">{user.name}</h2>
-        <p className="text-gray-500 mb-6">{user.email}</p>
-        <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-xl shadow-md">
-          Edit Profile
-        </button>
-      </div>
+    <div className="min-h-screen flex items-center justify-center px-4 mt-[-90px]">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="bg-white rounded-2xl shadow-lg p-6 max-w-md w-full text-left space-y-4"
+      >
+        <div>
+          <p className="text-gray-600 text-sm">Name:</p>
+          <h2 className="text-xl font-semibold text-gray-800">{user}</h2>
+        </div>
+        <div>
+          <p className="text-gray-600 text-sm">Email:</p>
+          <p className="text-md text-gray-700">{userEmail}</p>
+        </div>
+      </motion.div>
     </div>
   );
 };
