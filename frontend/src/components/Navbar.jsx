@@ -17,6 +17,7 @@ const Navbar = () => {
     setToken,
     setCartItems,
     setUser,
+    user,
     setUserEmail,
   } = useContext(ShopContext);
 
@@ -96,6 +97,7 @@ const Navbar = () => {
 
         {/* Profile Icon & Dropdown */}
         <div className="group relative" ref={profileRef}>
+          <div className="flex flex-col justify-center items-center cursor-pointer">
           <img
             onClick={() => {
               if (!token) {
@@ -108,6 +110,8 @@ const Navbar = () => {
             alt="Profile"
             className="w-5 cursor-pointer"
           />
+          <p className="text-sm">{user}</p>
+          </div>
           {token && (
             <div
               className={`absolute right-0 pt-4 z-50 ${
