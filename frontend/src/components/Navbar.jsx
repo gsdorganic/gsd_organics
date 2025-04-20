@@ -98,7 +98,7 @@ const Navbar = () => {
         {/* Profile Icon & Dropdown */}
         <div className="group relative" ref={profileRef}>
           <div className={`flex flex-col justify-center items-center cursor-pointer ${token ? "mr-[-12px]" : ""}`}>
-          <img
+        <img
             onClick={() => {
               if (!token) {
                 navigate("/login");
@@ -110,7 +110,8 @@ const Navbar = () => {
             alt="Profile"
             className="w-5 cursor-pointer"
           />
-          <p className="text-sm">{user.split(" ")[0]}</p>
+          
+          <p className={`text-sm text-[#e97d19]`}>{user.split(" ")[0]}</p>
           </div>
           {token && (
             <div
@@ -154,7 +155,7 @@ const Navbar = () => {
         {/* Cart Icon */}
         <Link to="/cart" className="relative">
           <img src={assets.cart_icon} className="w-5 min-w-5" alt="Cart" />
-          <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
+          <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-[#e97d19] text-white aspect-square rounded-full text-[8px]">
             {getCartCount()}
           </p>
         </Link>
