@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion"; // ✅ Import Framer Motion
+import { motion } from "framer-motion";
 import BestSeller from "../components/BestSeller";
 import Hero from "../components/Hero";
 import LatestCollection from "../components/LatestCollection";
@@ -8,55 +8,59 @@ import OurPolicy from "../components/OurPolicy";
 import { assets } from "../assets/assets";
 import { LuTreePalm } from "react-icons/lu";
 import Testimonials from "../components/Testimonials";
-import BlogPage from "./BlogPage";
 
 const Home = () => {
   const navigate = useNavigate();
 
   const handleReadMoreClick = () => {
-    navigate('/about');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate("/about");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
+      {/* Hero Section */}
       <Hero />
-      
+
+      {/* Latest Collection */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.2 }}
       >
         <LatestCollection />
       </motion.div>
 
-      {/* Vermicompost Benefits & Solution Part */}
+      {/* Vermicompost Benefits & Solutions */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.2 }}
         className="flex flex-col md:flex-row items-center justify-center gap-12 p-6 md:p-12"
       >
+        {/* Image Block */}
         <div className="w-full md:w-1/2 relative">
-          <div className="absolute -top-6 -left-6 z-20 w-24 h-24 md:w-28 md:h-28 rounded-full bg-white/30 backdrop-blur-md border border-white/40 
-            flex flex-col items-center justify-center text-green-900 font-extrabold text-xs md:text-sm shadow-[6px_6px_25px_rgba(0,0,0,0.25)] 
-            transform -rotate-6 hover:rotate-0 transition-all duration-300 ease-in-out 
-            before:content-[''] before:absolute before:inset-0 before:rounded-full before:shadow-[0_0_25px_6px_rgba(34,197,94,0.4)] before:z-[-1]">
+          <div className="absolute -top-6 -left-6 z-10 w-24 h-24 md:w-28 md:h-28 rounded-full bg-white/30 backdrop-blur-md border border-white/40 
+              flex flex-col items-center justify-center text-green-900 font-extrabold text-xs md:text-sm shadow-[6px_6px_25px_rgba(0,0,0,0.25)] 
+              transform -rotate-6 hover:rotate-0 transition-all duration-300 ease-in-out 
+              before:content-[''] before:absolute before:inset-0 before:rounded-full before:shadow-[0_0_25px_6px_rgba(34,197,94,0.4)] before:z-[-1]">
             <span className="text-xl md:text-2xl leading-tight">5+</span>
             <span className="text-[10px] md:text-xs text-center leading-tight">Years Of<br />Experience</span>
           </div>
-
           <img
-            className="w-full rounded-2xl shadow-lg object-cover"
+            className="w-full rounded-2xl shadow-lg object-cover z-0"
             src={assets.organic}
             alt="Vermicompost Organic Fertilizer"
           />
         </div>
 
+        {/* Text Block */}
         <div className="w-full md:w-1/2 space-y-6">
-          <h3 className="text-3xl font-bold text-green-800"><LuTreePalm /> Vermicompost Benefits & Solutions</h3>
+          <h3 className="text-3xl font-bold text-green-800 flex items-center gap-2">
+            <LuTreePalm /> Vermicompost Benefits & Solutions
+          </h3>
           <p className="text-lg text-gray-700">
             We focus on providing the best organic fertilizers tailored to a wide range of crops and farming styles:
           </p>
@@ -67,7 +71,7 @@ const Home = () => {
             <li>Ideal for <span className="font-semibold text-green-700">polyhouse</span> and <span className="font-semibold text-green-700">greenhouse</span> farming.</li>
           </ol>
           <img
-            className="relative bottom-0 md:bottom-[0px] xl:bottom-[-55px] right-0"
+            className="relative bottom-0 md:bottom-0 xl:bottom-[-55px] right-0"
             src={assets.project_bg}
             alt=""
           />
@@ -79,7 +83,7 @@ const Home = () => {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.2 }}
         className="bg-white py-12 px-6 md:px-16 rounded-2xl shadow-md"
       >
         <div className="text-center mb-10">
@@ -116,7 +120,7 @@ const Home = () => {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.2 }}
       >
         <Testimonials />
       </motion.div>
@@ -126,7 +130,7 @@ const Home = () => {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.2 }}
       >
         <OurPolicy />
       </motion.div>
@@ -136,7 +140,7 @@ const Home = () => {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.2 }}
       >
         <NewsletterBox />
       </motion.div>
