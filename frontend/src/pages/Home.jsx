@@ -22,15 +22,15 @@ const Home = () => {
       <Hero />
 
       {/* Latest Collection */}
-      <motion.section
+      {/* <motion.section
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: false, amount: 0.2 }}
         className="px-4 py-10 md:px-12 lg:px-16"
-      >
+      > */}
         <LatestCollection />
-      </motion.section>
+      {/* </motion.section> */}
 
       {/* Vermicompost Benefits */}
       <motion.section
