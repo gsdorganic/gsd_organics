@@ -1,13 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import BestSeller from "../components/BestSeller";
 import Hero from "../components/Hero";
 import LatestCollection from "../components/LatestCollection";
 import NewsletterBox from "../components/NewsletterBox";
 import OurPolicy from "../components/OurPolicy";
+import Testimonials from "../components/Testimonials";
 import { assets } from "../assets/assets";
 import { LuTreePalm } from "react-icons/lu";
-import Testimonials from "../components/Testimonials";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -23,17 +22,18 @@ const Home = () => {
       <Hero />
 
       {/* Latest Collection */}
-      {/* <motion.div
+      <motion.section
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: false, amount: 0.2 }}
-      > */}
+        className="px-4 py-10 md:px-12 lg:px-16"
+      >
         <LatestCollection />
-      {/* </motion.div> */}
+      </motion.section>
 
-      {/* Vermicompost Benefits & Solutions */}
-      <motion.div
+      {/* Vermicompost Benefits */}
+      <motion.section
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -65,10 +65,10 @@ const Home = () => {
             We focus on providing the best organic fertilizers tailored to a wide range of crops and farming styles:
           </p>
           <ol className="list-decimal list-inside space-y-2 text-gray-800 font-medium">
-            <li>Fruit trees such as <span className="font-semibold text-green-700">apple, kinnow, pomegranate</span>, and guava.</li>
-            <li>Vegetables including <span className="font-semibold text-green-700">potato, garlic, chilli, cucumbers</span>, tomatoes, and many more.</li>
-            <li>Cash crops such as <span className="font-semibold text-green-700">wheat, rice, sugarcane</span>, and much more.</li>
-            <li>Ideal for <span className="font-semibold text-green-700">polyhouse</span> and <span className="font-semibold text-green-700">greenhouse</span> farming.</li>
+            <li>Fruit trees like <span className="font-semibold text-green-700">apple, kinnow, pomegranate</span>, and guava.</li>
+            <li>Vegetables including <span className="font-semibold text-green-700">potato, garlic, chilli, cucumbers</span>, tomatoes, and more.</li>
+            <li>Cash crops like <span className="font-semibold text-green-700">wheat, rice, sugarcane</span>.</li>
+            <li>Perfect for <span className="font-semibold text-green-700">polyhouse</span> and <span className="font-semibold text-green-700">greenhouse</span> farming.</li>
           </ol>
           <img
             className="relative bottom-0 md:bottom-0 xl:bottom-[-55px] right-0"
@@ -76,10 +76,10 @@ const Home = () => {
             alt=""
           />
         </div>
-      </motion.div>
+      </motion.section>
 
       {/* About GSD Section */}
-      <motion.div
+      <motion.section
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -97,10 +97,8 @@ const Home = () => {
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
             <span className="font-semibold">GSD ORGANICS</span> started in the summer of
-            <span className="font-medium text-green-700"> 2020</span>. It has since grown into a trusted name in the organic farming industry.
-            We produce premium quality, 100% organic
-            <span className="font-semibold"> vermicompost</span> that enriches the soil and strengthens your plants.
-            Whether you're a home gardener or a large-scale farmer, our vermicompost is the one-step solution to all your plant problems.
+            <span className="font-medium text-green-700"> 2020</span>. Since then, we’ve grown into a trusted name in organic farming.
+            We produce premium quality, 100% organic <span className="font-semibold">vermicompost</span> that enriches soil and strengthens your plants.
           </p>
           <button
             onClick={handleReadMoreClick}
@@ -113,37 +111,37 @@ const Home = () => {
         <div className="text-right mt-8 text-gray-600 italic font-medium">
           – T.R. SHARMA, OWNER
         </div>
-      </motion.div>
+      </motion.section>
 
       {/* Testimonials */}
-      <motion.div
+      <motion.section
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: false, amount: 0.2 }}
       >
         <Testimonials />
-      </motion.div>
+      </motion.section>
 
       {/* Our Policy */}
-      <motion.div
+      <motion.section
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: false, amount: 0.2 }}
       >
         <OurPolicy />
-      </motion.div>
+      </motion.section>
 
-      {/* Newsletter Box */}
-      <motion.div
+      {/* Newsletter */}
+      <motion.section
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: false, amount: 0.2 }}
       >
         <NewsletterBox />
-      </motion.div>
+      </motion.section>
     </div>
   );
 };
