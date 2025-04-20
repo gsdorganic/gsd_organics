@@ -3,7 +3,6 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
 import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
 
 const LatestCollection = () => {
   const { products } = useContext(ShopContext);
@@ -14,13 +13,7 @@ const LatestCollection = () => {
   }, [products]);
 
   return (
-    <motion.div
-      className="my-10"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-    >
+    <div className="my-10">
       <div className="text-center py-8 text-3xl">
         <Title text1={"LATEST"} text2={"PRODUCTS"} />
         <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
@@ -52,7 +45,7 @@ const LatestCollection = () => {
           </button>
         </NavLink>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
