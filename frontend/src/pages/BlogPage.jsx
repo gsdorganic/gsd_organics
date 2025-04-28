@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { motion, useInView } from "framer-motion";
+import Title from "../components/Title";
 
 const blogs = [
   {
@@ -62,9 +63,10 @@ const blogs = [
 
 const BlogPage = () => {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-10">
       <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-10">Our Blog</h1>
+        <h1 className="text-3xl font-bold text-center mb-6  ">
+        <Title text1={"OUR"} text2={"BLOGS"} /></h1>
         <p className="text-center max-w-2xl mx-auto text-gray-600 mb-12">
           Dive into our articles to learn more about organic farming, vermicomposting, sustainability, and our mission at Gau Seva Dham.
         </p>

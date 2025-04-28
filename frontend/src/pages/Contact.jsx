@@ -49,7 +49,7 @@ const Contact = () => {
     <div className="pt-14 px-4 md:px-10">
       {/* Title */}
       <motion.div
-        className="text-center mb-14"
+        className="text-center mb-14 text-3xl"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}

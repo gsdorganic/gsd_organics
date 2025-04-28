@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { assets } from "../assets/assets";
+import { NavLink } from "react-router-dom";
 
 const slides = [
   { image: assets.earth, text: "Organic Living" },
@@ -33,17 +34,17 @@ const Hero = () => {
       >
         <div className="text-[#414141] text-center sm:text-left w-full max-w-[500px]">
           <div className="flex items-center justify-center sm:justify-start gap-2 mb-3">
-            <p className="w-8 md:w-11 h-[2px] bg-[#414141]"></p>
-            <p className="font-medium text-sm md:text-base">OUR MOTIVE</p>
+            <p className="w-8 md:w-11 h-[2px] bg-green-500"></p>
+            <p className="font-medium text-sm md:text-base text-green-500">OUR MOTIVE</p>
           </div>
 
-          <h1 className="prata-regular text-3xl lg:text-5xl leading-relaxed min-h-[80px]">
+          <h1 className="prata-regular text-3xl lg:text-5xl leading-relaxed min-h-[80px] text-[#e97d1a]">
             {slides[index].text}
           </h1>
 
           <div className="flex items-center justify-center sm:justify-start gap-2 mt-3">
-            <p className="font-semibold text-sm md:text-base">SHOP NOW</p>
-            <p className="w-8 md:w-11 h-[1px] bg-[#414141]"></p>
+            <p className="font-semibold text-sm md:text-base text-green-500"><NavLink to={"/collection"}>SHOP NOW</NavLink></p>
+            <p className="w-8 md:w-11 h-[1px] bg-green-500"></p>
           </div>
         </div>
       </motion.div>

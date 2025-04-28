@@ -52,6 +52,10 @@ const Navbar = () => {
     exit: { x: "100%" },
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <motion.div
       className="flex items-center justify-between px-5 font-medium sticky top-0 bg-white z-40"
@@ -60,7 +64,7 @@ const Navbar = () => {
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       {/* Logo */}
-      <Link to="/">
+      <Link to="/" onClick={scrollToTop}>
         <img src={assets.gsdorganics_Logo} alt="Logo" className="w-24" />
       </Link>
 
@@ -74,7 +78,7 @@ const Navbar = () => {
           { path: "/blog", label: "BLOGS" },
           { path: "/contact", label: "CONTACT" },
         ].map((link) => (
-          <NavLink key={link.path} to={link.path} className="flex flex-col items-center gap-1">
+          <NavLink onClick={scrollToTop} key={link.path} to={link.path} className="flex flex-col items-center gap-1">
             <p>{link.label}</p>
             <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
           </NavLink>
@@ -100,6 +104,7 @@ const Navbar = () => {
           <div className={`flex flex-col justify-center items-center cursor-pointer ${token ? "mr-[-12px]" : ""}`}>
         <img
             onClick={() => {
+              scrollToTop();
               if (!token) {
                 navigate("/login");
               } else {
@@ -153,7 +158,7 @@ const Navbar = () => {
         </div>
 
         {/* Cart Icon */}
-        <Link to="/cart" className="relative">
+        <Link to="/cart" className="relative" onClick={scrollToTop}>
           <img src={assets.cart_icon} className="w-5 min-w-5" alt="Cart" />
           <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-[#e97d19] text-white aspect-square rounded-full text-[8px]">
             {getCartCount()}
@@ -198,7 +203,7 @@ const Navbar = () => {
               ].map((link) => (
                 <NavLink
                   key={link.path}
-                  onClick={() => setVisible(false)}
+                  onClick={() => {setVisible(false); scrollToTop()}}
                   className="py-2 pl-6 border"
                   to={link.path}
                 >
