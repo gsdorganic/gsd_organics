@@ -7,6 +7,7 @@ import OurPolicy from "../components/OurPolicy";
 import Testimonials from "../components/Testimonials";
 import { assets } from "../assets/assets";
 import { LuTreePalm } from "react-icons/lu";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -89,8 +90,8 @@ const Home = () => {
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-green-700 tracking-wide">
             <span>ABOUT </span>
-            <span className="text-gray-800">GSD</span>
-            <span className="text-green-900"> ORGANICS</span>
+            <span >GSD</span>
+            <span > ORGANICS</span>
           </h2>
         </div>
 

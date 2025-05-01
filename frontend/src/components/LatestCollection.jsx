@@ -40,7 +40,7 @@ const LatestCollection = () => {
           to="/collection"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          <button className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white text-sm sm:text-base font-semibold rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+          <button className="px-6 py-3 bg-green-600 hover:bg-[#e97d1a] text-white text-sm sm:text-base font-semibold rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
             Explore All Products
           </button>
         </NavLink>

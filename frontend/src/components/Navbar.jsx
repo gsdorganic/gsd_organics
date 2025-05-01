@@ -3,6 +3,7 @@ import { assets } from "../assets/assets";
 import { useContext, useState, useEffect, useRef } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { motion, AnimatePresence } from "framer-motion";
+import WhatsAppButton from "./WhatsAppButton";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -78,7 +79,7 @@ const Navbar = () => {
           { path: "/blog", label: "BLOGS" },
           { path: "/contact", label: "CONTACT" },
         ].map((link) => (
-          <NavLink onClick={scrollToTop} key={link.path} to={link.path} className="flex flex-col items-center gap-1">
+          <NavLink onClick={scrollToTop} key={link.path} to={link.path} className="flex flex-col items-center gap-1 hover:text-green-700">
             <p>{link.label}</p>
             <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
           </NavLink>
@@ -214,6 +215,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <WhatsAppButton />
     </motion.div>
   );
 };

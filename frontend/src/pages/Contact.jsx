@@ -101,7 +101,7 @@ const Contact = () => {
         animate={formInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <h3 className="text-3xl font-bold text-center text-gray-800 mb-10">
+        <h3 className="text-3xl font-bold text-center text-green-700 mb-10">
           Get in Touch 💬
         </h3>
         <form
@@ -150,7 +150,7 @@ const Contact = () => {
           <div className="col-span-1 md:col-span-2 text-center">
             <button
               type="submit"
-              className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg"
+              className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#e97d1a] transition-all duration-300 shadow-lg"
             >
               Send Message
             </button>

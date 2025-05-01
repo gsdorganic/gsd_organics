@@ -49,7 +49,7 @@ const Testimonials = () => {
         visible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <h2 className="text-3xl font-bold text-center mb-12">What People Say</h2>
+      <h2 className="text-3xl font-bold text-center mb-12 text-green-700">What People Say</h2>
       <div className="max-w-6xl mx-auto px-4">
         <Swiper
           modules={[Pagination, Autoplay]}
