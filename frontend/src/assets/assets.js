@@ -102,6 +102,10 @@ import earth2 from "./earth2.jpg";
 import earth3 from "./earth3.jpg";
 import earth4 from "./earth4.jpg";
 import earth5 from "./earth5.jpg";
+import PNMS from "./PNMS.png";
+import vishal from "./vishal.png";
+import bhusan from "./bhusan.png";
+import yud from './yud.png';
 
 export const assets = {
   logo,
@@ -149,7 +153,11 @@ eleven,
 about,
 vermicompost,
 project_bg,
-blog1
+blog1,
+PNMS,
+vishal,
+bhusan,
+yud
 
 };
 

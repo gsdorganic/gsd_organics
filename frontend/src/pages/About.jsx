@@ -5,23 +5,20 @@ import NewsletterBox from "../components/NewsletterBox";
 import Testimonials from "../components/Testimonials";
 import { motion } from "framer-motion";
 
-// Fade-in animation variant
+// Animation variant
 const fadeInVariant = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      duration: 1,
-      ease: "easeOut",
-    },
+    transition: { duration: 1, ease: "easeOut" },
   },
 };
 
 const videoUrls = [
   "https://www.youtube.com/embed/ypnfRxdTEIA?si=YbQl3_ybq0dMNRmI",
   "https://www.youtube.com/embed/QrGLnLzDBr0?si=KMyHTI8iy0yMdmcQ",
-  "https://www.youtube-nocookie.com/embed/yVu3elwRTrk?si=8NI4ieWMtlu8YVTY",
-  "https://www.youtube-nocookie.com/embed/ypnfRxdTEIA?si=JQbvkSJPHJj1zpp_",
+  "https://www.youtube.com/embed/yVu3elwRTrk?si=8NI4ieWMtlu8YVTY",
+  "https://www.youtube.com/embed/ypnfRxdTEIA?si=JQbvkSJPHJj1zpp_",
 ];
 
 const features = [
@@ -34,6 +31,44 @@ const reasons = [
   { title: "Quality Assurance", content: "From preparation to packaging, we maintain the highest standards to ensure every batch of vermicompost meets our promise of purity." },
   { title: "User-Friendly", content: "Whether you're a beginner or a pro gardener, our compost is easy to use and delivers visible results without hassle." },
   { title: "Dedicated Support", content: "We love helping our customers! From composting tips to plant advice, our team is here to guide you every step of the way." },
+];
+
+const teamMembers = [
+  {
+    name: "Partyaksh Sharma",
+    photo: assets.PNMS,
+    title: "Co-Founder & Managing Director",
+    phone: "+91-9991775555",
+    email: "partyaksh@examp.com"
+  },
+  {
+    name: "Krishan Kant",
+    photo: assets.organic,
+    title: "Co-Founder & Chief Executive Officer",
+    phone: "+91-9876543211",
+    email: "krishan@example.com"
+  },
+  {
+    name: "Brij Bhushan",
+    photo: assets.bhusan,
+    title: "Head of Marketing",
+    phone: "+91-9876543212",
+    email: "brij@example.com"
+  },
+  {
+    name: "Yudhister Sharma",
+    photo: assets.yud,
+    title: "Operations Manager",
+    phone: "+91-9876543213",
+    email: "yudhist@example.com"
+  },
+  {
+    name: "Vishal Sharma",
+    photo: assets.vishal,
+    title: "Social Media Manager",
+    phone: "+91-9876543214",
+    email: "vishal@example.com"
+  },
 ];
 
 const About = () => {
@@ -92,7 +127,7 @@ const About = () => {
         <Title text1="ABOUT" text2="US" />
       </div>
 
-      {/* About Image and Description */}
+      {/* About Section */}
       <motion.section
         className="max-w-6xl mx-auto my-12 px-6 flex flex-col md:flex-row items-center gap-10"
         variants={fadeInVariant}
@@ -144,6 +179,60 @@ const About = () => {
         ))}
       </motion.section>
 
+      {/* 🔥 Our Team Section - Updated */}
+      <motion.section
+        className="max-w-6xl mx-auto px-6 py-16 text-center"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-8">
+          👨‍🌾 Meet Our Team
+        </h2>
+        <p className="text-gray-700 mb-12 max-w-2xl mx-auto text-lg">
+          Our passionate team is dedicated to helping you grow naturally and sustainably.
+        </p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          {teamMembers.map((member, index) => (
+            <div
+              key={index}
+              className="rounded overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col"
+            >
+              {/* Fixed-size image */}
+              <div className="w-full h-48 bg-gray-200">
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  className="w-full object-cover hover:bg-orange-200 transition-all duration-500"
+                />
+              </div>
+              <div className="bg-white text-left p-4 flex flex-col justify-between h-full">
+                <h3 className="text-md font-semibold text-green-800">{member.name}</h3>
+                <p className="text-sm text-gray-600 mb-2">{member.title}</p>
+
+                {/* Contact Information */}
+                <div className="mt-auto">
+                  <p className="text-sm text-gray-700 mb-1">
+                    📞{" "}
+                    <a href={`tel:${member.phone}`} className="text-blue-600 underline">
+                      {member.phone}
+                    </a>
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    📧{" "}
+                    <a href={`mailto:${member.email}`} className="text-green-600 underline">
+                      {member.email}
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
       {/* Testimonials */}
       <Testimonials />
 
@@ -182,7 +271,7 @@ const About = () => {
         </div>
       </motion.section>
 
-      {/* Newsletter Box */}
+      {/* Newsletter */}
       <NewsletterBox />
     </div>
   );

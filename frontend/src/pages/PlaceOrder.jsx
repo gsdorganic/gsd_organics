@@ -3,7 +3,6 @@ import { assets } from "../assets/assets";
 import CartTotal from "../components/CartTotal";
 import Title from "../components/Title";
 import { ShopContext } from "../context/ShopContext";
-import axios from "axios";
 import { toast } from "react-toastify";
 
 const PlaceOrder = () => {
@@ -18,6 +17,7 @@ const PlaceOrder = () => {
     delivery_fee,
     products,
   } = useContext(ShopContext);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -37,56 +37,72 @@ const PlaceOrder = () => {
     setFormData((data) => ({ ...data, [name]: value }));
   };
 
-  const onSubmitHandler = async (event) => {
-    event.preventDefault();
-    try {
-      let orderItems = [];
-      for (const items in cartItems) {
-        for (const item in cartItems[items]) {
-          if (cartItems[items][item] > 0) {
-            const itemInfo = structuredClone(
-              products.find((product) => product._id === items)
-            );
-            if (itemInfo) {
-              itemInfo.size = item;
-              itemInfo.quantity = cartItems[items][item];
-              orderItems.push(itemInfo);
-            }
+  const sendToWhatsApp = () => {
+    let orderItems = [];
+    for (const items in cartItems) {
+      for (const item in cartItems[items]) {
+        if (cartItems[items][item] > 0) {
+          const itemInfo = structuredClone(
+            products.find((product) => product._id === items)
+          );
+          if (itemInfo) {
+            itemInfo.size = item;
+            itemInfo.quantity = cartItems[items][item];
+            orderItems.push(itemInfo);
           }
         }
       }
-
-      let orderData = {
-        address: formData,
-        items: orderItems,
-        amount: getCartAmount() + delivery_fee,
-      };
-
-      switch (method) {
-        // api calls for COD
-        case "cod":
-          const response = await axios.post(
-            backendUrl + "/api/order/place",
-            orderData,
-            { headers: { token } }
-          );
-          if (response.data.success) {
-            setCartItems({});
-            navigate("/orders");
-          } else {
-            toast.error(response.data.message);
-          }
-          break;
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error(error.message);
     }
+
+    if (orderItems.length === 0) {
+      toast.error("Your cart is empty!");
+      return;
+    }
+
+    const {
+      firstName,
+      lastName,
+      email,
+      street,
+      city,
+      state,
+      zipcode,
+      country,
+      phone,
+    } = formData;
+
+    if (
+      !firstName ||
+      !lastName ||
+      !email ||
+      !street ||
+      !city ||
+      !state ||
+      !zipcode ||
+      !country ||
+      !phone
+    ) {
+      toast.error("Please fill all the fields!");
+      return;
+    }
+
+    let message = `🧾 *Order Details*\n\n👤 *Customer Name:* ${firstName} ${lastName}\n📧 *Email:* ${email}\n📞 *Phone:* ${phone}\n📍 *Address:* ${street}, ${city}, ${state}, ${zipcode}, ${country}\n\n📦 *Items Ordered:*\n`;
+
+    orderItems.forEach((item, index) => {
+      message += `\n${index + 1}. ${item.name} (${item.size}) x ${item.quantity}`;
+    });
+
+    message += `\n\n💰 *Total Amount:* ₹${getCartAmount() + delivery_fee}`;
+
+    const whatsappUrl = `https://wa.me/919050174100?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
     <form
-      onSubmit={onSubmitHandler}
+      onSubmit={(e) => e.preventDefault()}
       className="flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t"
     >
       {/* Left Side */}
@@ -192,10 +208,13 @@ const PlaceOrder = () => {
         </div>
 
         <div className="mt-12">
-          <Title text1={"PAYMENT"} text2={"METHOD"} />
-
+          <Title text1={"PAYMENT"} text2={"METHOD"} />  
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-1 rounded relative" role="alert">
+  <strong className="font-bold">Notice:</strong>
+  <span className="block sm:inline"> Payment methods are currently unavailable. We are working to resolve this. <br/> In the meantime, please place your order via WhatsApp.</span>
+</div>
           {/* --------------------Payment Method Selection------------------------ */}
-          <div className="flex gap-3 flex-col lg:flex-row">
+          {/* <div className="flex gap-3 flex-col lg:flex-row">
             <div
               onClick={() => setMethod("stripe")}
               className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
@@ -231,14 +250,15 @@ const PlaceOrder = () => {
                 CASH ON DELIVERY
               </p>
             </div>
-          </div>
+          </div> */}
 
           <div className="w-full text-end mt-8">
             <button
-              type="submit"
-              className="bg-black text-white px-16 py-3 text-sm"
+              type="button"
+              onClick={sendToWhatsApp}
+              className="bg-green-500 text-white px-16 py-3 text-sm rounded"
             >
-              PLACE ORDER
+              SEND ORDER TO WHATSAPP
             </button>
           </div>
         </div>
