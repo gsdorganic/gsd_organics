@@ -194,7 +194,7 @@ const About = () => {
           Our passionate team is dedicated to helping you grow naturally and sustainably.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {teamMembers.map((member, index) => (
             <div
               key={index}
