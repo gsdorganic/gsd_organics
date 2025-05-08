@@ -106,6 +106,10 @@ import PNMS from "./PNMS.png";
 import vishal from "./vishal.png";
 import bhusan from "./bhusan.png";
 import yud from './yud.png';
+import Satyam from './Satyam.png';
+import satish from './satish.png';
+import deepak from './deepak.png';
+import tek from './tek.png';
 
 export const assets = {
   logo,
@@ -157,7 +161,11 @@ blog1,
 PNMS,
 vishal,
 bhusan,
-yud
+yud,
+Satyam,
+satish,
+deepak,
+tek
 
 };
 
