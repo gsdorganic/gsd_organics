@@ -111,6 +111,9 @@ import satish from './satish.png';
 import deepak from './deepak.png';
 import tek from './tek.png';
 
+
+
+
 export const assets = {
   logo,
   hero_img,
@@ -165,7 +168,7 @@ yud,
 Satyam,
 satish,
 deepak,
-tek
+tek,
 
 };
 

@@ -4,6 +4,7 @@ import Title from "../components/Title";
 import NewsletterBox from "../components/NewsletterBox";
 import Testimonials from "../components/Testimonials";
 import { motion } from "framer-motion";
+import VideoSlider from "./VideoSlider";
 
 // Animation variant
 const fadeInVariant = {
@@ -14,12 +15,12 @@ const fadeInVariant = {
   },
 };
 
-const videoUrls = [
-  "https://www.youtube.com/embed/ypnfRxdTEIA?si=YbQl3_ybq0dMNRmI",
-  "https://www.youtube.com/embed/QrGLnLzDBr0?si=KMyHTI8iy0yMdmcQ",
-  "https://www.youtube.com/embed/yVu3elwRTrk?si=8NI4ieWMtlu8YVTY",
-  "https://www.youtube.com/embed/ypnfRxdTEIA?si=JQbvkSJPHJj1zpp_",
-];
+// const videoUrls = [
+//   "https://www.youtube.com/embed/ypnfRxdTEIA?si=YbQl3_ybq0dMNRmI",
+//   "https://www.youtube.com/embed/QrGLnLzDBr0?si=KMyHTI8iy0yMdmcQ",
+//   "https://www.youtube.com/embed/yVu3elwRTrk?si=8NI4ieWMtlu8YVTY",
+//   "https://www.youtube.com/embed/ypnfRxdTEIA?si=JQbvkSJPHJj1zpp_",
+// ];
 
 const features = [
   { icon: "🌿", title: "100% Organic", desc: "Pure, natural vermicompost made without any additives or chemicals." },
@@ -179,7 +180,7 @@ const About = () => {
         ))}
       </motion.section>
 
-      {/* 🔥 Our Team Section - Updated */}
+      {/* Our Team */}
       <motion.section
         className="max-w-6xl mx-auto px-6 py-16 text-center"
         variants={fadeInVariant}
@@ -200,7 +201,6 @@ const About = () => {
               key={index}
               className="rounded overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              {/* Fixed-size image */}
               <div className="w-full h-48 bg-gray-200">
                 <img
                   src={member.photo}
@@ -211,20 +211,12 @@ const About = () => {
               <div className="bg-white text-left p-4 flex flex-col justify-between h-full">
                 <h3 className="text-md font-semibold text-green-800">{member.name}</h3>
                 <p className="text-sm text-gray-600 mb-2">{member.title}</p>
-
-                {/* Contact Information */}
                 <div className="mt-auto">
                   <p className="text-sm text-gray-700 mb-1">
-                    📞{" "}
-                    <a href={`tel:${member.phone}`} className="text-blue-600 underline">
-                      {member.phone}
-                    </a>
+                    📞 <a href={`tel:${member.phone}`} className="text-blue-600 underline">{member.phone}</a>
                   </p>
                   <p className="text-sm text-gray-700">
-                    📧{" "}
-                    <a href={`mailto:${member.email}`} className="text-green-600 underline">
-                      {member.email}
-                    </a>
+                    📧 <a href={`mailto:${member.email}`} className="text-green-600 underline">{member.email}</a>
                   </p>
                 </div>
               </div>
@@ -236,40 +228,8 @@ const About = () => {
       {/* Testimonials */}
       <Testimonials />
 
-      {/* Videos */}
-      <motion.section
-        className="bg-green-50 py-12 border-t border-gray-200 mb-16"
-        variants={fadeInVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-6">
-            🎥 See Us in Action
-          </h2>
-          <p className="text-gray-700 mb-10 max-w-2xl mx-auto text-lg">
-            Watch how GSD Organics is making a real difference in farming and sustainability.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {videoUrls.map((url, i) => (
-              <div
-                key={i}
-                className="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
-              >
-                <iframe
-                  className="w-full aspect-video rounded-2xl"
-                  src={url}
-                  title={`YouTube video ${i}`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+      {/* 🎥 Videos Slider */}
+    <VideoSlider />
 
       {/* Newsletter */}
       <NewsletterBox />

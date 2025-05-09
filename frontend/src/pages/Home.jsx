@@ -7,7 +7,7 @@ import OurPolicy from "../components/OurPolicy";
 import Testimonials from "../components/Testimonials";
 import { assets } from "../assets/assets";
 import { LuTreePalm } from "react-icons/lu";
-import WhatsAppButton from "../components/WhatsAppButton";
+// import WhatsAppButton from "../components/WhatsAppButton";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -141,7 +141,7 @@ const Home = () => {
         transition={{ duration: 0.6 }}
         viewport={{ once: false, amount: 0.2 }}
       >
-        <NewsletterBox />
+        {/* <NewsletterBox /> */}
       </motion.section>
     </div>
   );
