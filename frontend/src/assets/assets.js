@@ -110,14 +110,14 @@ import Satyam from './Satyam.png';
 import satish from './satish.png';
 import deepak from './deepak.png';
 import tek from './tek.png';
-import gsd111 from './111.jpg';
+// import gsd111 from './111.jpg';
 // import gsd222 from './222.jpg';
-import gsd333 from './333.jpg';
-import gsd444 from './444.jpg';
-import gsd555 from './555.jpg';
-import gsd666 from './666.jpg';
-import gsd777 from './777.jpg';
-import gsd888 from './888.jpg';
+// import gsd333 from './333.jpg';
+// import gsd444 from './444.jpg';
+// import gsd555 from './555.jpg';
+// import gsd666 from './666.jpg';
+// import gsd777 from './777.jpg';
+// import gsd888 from './888.jpg';
 
 
 
@@ -177,14 +177,14 @@ Satyam,
 satish,
 deepak,
 tek,
-gsd111,
-gsd222,
-gsd333,
-gsd444,
-gsd555,
-gsd666,
-gsd777,
-gsd888
+// gsd111,
+// gsd222,
+// gsd333,
+// gsd444,
+// gsd555,
+// gsd666,
+// gsd777,
+// gsd888
 };
 
 export const products = [
