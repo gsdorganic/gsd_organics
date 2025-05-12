@@ -7,59 +7,60 @@ import Title from "../components/Title";
 const blogs = [
   {
     id: 1,
-    title: "The Power of Organic Farming",
+    title: "The Magic of Vermicompost for Home and Farm",
     description:
-      "Explore the benefits of switching to organic farming and how it supports both health and the environment.",
+      "Discover how our high-quality vermicompost enhances soil fertility, improves crop yields, and reduces dependency on chemical fertilizers.",
     image: assets.blog1,
-    date: "April 12, 2025",
+    date: "May 10, 2025",
     author: "Hariom Sharma",
   },
   {
     id: 2,
-    title: "Vermicompost: Nature’s Fertilizer",
+    title: "Transforming Waste: The Journey of Dung to Hawan Lakdi",
     description:
-      "Learn how vermicompost can enrich your soil and improve crop yields in the most eco-friendly way.",
+      "A behind-the-scenes look at how cow dung is transformed into eco-friendly, smokeless Hawan Lakdi used in spiritual rituals and farming.",
     image: assets.gsd_organics_uses_compost_scaled,
-    date: "April 10, 2025",
-    author: "Sapna Sharma",
+    date: "May 5, 2025",
+    author: "Sapna",
   },
   {
     id: 3,
-    title: "Gau Seva and Sustainability",
+    title: "From Cow Dung to Prosperity: Inside the Dung Cake Process",
     description:
-      "How serving cows and using cow-based products contributes to a greener planet and spiritual wellness.",
+      "Learn how traditional dung cakes, made using age-old methods, are providing sustainable fuel and revitalizing rural economies.",
     image: assets.news,
-    date: "April 5, 2025",
+    date: "April 29, 2025",
     author: "GSD Team",
   },
   {
     id: 4,
-    title: "Why CSR Should Support Rural Health",
+    title: "Sifting for Purity: Why Seiving Matters in Organic Compost",
     description:
-      "A look at why CSR initiatives should focus more on rural hospitals like Gau Seva Dham for real impact.",
-    image: "",
-    date: "March 28, 2025",
+      "Explore how our advanced seiving machines ensure only the purest, most nutrient-rich compost reaches your garden or field.",
+    image: assets.gsd555,
+    date: "April 22, 2025",
     author: "Rohit Verma",
   },
   {
     id: 5,
-    title: "Why CSR Should Support Rural Health",
+    title: "Grinding Green: How Our Machines Revolutionize Compost Prep",
     description:
-      "A look at why CSR initiatives should focus more on rural hospitals like Gau Seva Dham for real impact.",
-    image: "https://source.unsplash.com/featured/?hospital,India",
-    date: "March 28, 2025",
-    author: "Rohit Verma",
+      "Our grinding machines break down organic matter efficiently, speeding up decomposition and ensuring a uniform compost blend.",
+    image: assets.gsd666,
+    date: "April 15, 2025",
+    author: "Sapna",
   },
   {
     id: 6,
-    title: "Why CSR Should Support Rural Health",
+    title: "Organic Living: GSD Organics’ Role in India’s Green Future",
     description:
-      "A look at why CSR initiatives should focus more on rural hospitals like Gau Seva Dham for real impact.",
-    image: "https://source.unsplash.com/featured/?hospital,India",
-    date: "March 28, 2025",
-    author: "Rohit Verma",
+      "How our products support chemical-free agriculture, healthy living, and a return to sustainable, dharmic practices.",
+    image: assets.gsd888,
+    date: "April 8, 2025",
+    author: "Hariom Sharma",
   },
 ];
+
 
 const BlogPage = () => {
   return (

@@ -4,11 +4,11 @@ import { assets } from "../assets/assets";
 import { NavLink } from "react-router-dom";
 
 const slides = [
-  { image: assets.earth, text: "Organic Living" },
+  { image: assets.gsd222, text: "Organic Living" },
   { image: assets.earth2, text: "Naturally Nourished" },
-  { image: assets.earth3, text: "Grown with Care" },
-  { image: assets.earth4, text: "Sustainable Choices" },
-  { image: assets.earth5, text: "Pure, Honest & Healthy" },
+  { image: assets.gsd333, text: "Grown with Care" },
+  { image: assets.gsd444, text: "Sustainable Choices" },
+  { image: assets.gsd555, text: "Pure, Honest & Healthy" },
 ];
 
 const Hero = () => {

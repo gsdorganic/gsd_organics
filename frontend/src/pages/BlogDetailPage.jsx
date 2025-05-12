@@ -1,53 +1,80 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 const blogs = [
   {
     id: 1,
-    title: "The Power of Organic Farming",
-    content:
-      "Organic farming promotes a healthy environment by avoiding the use of harmful pesticides and fertilizers. It also supports biodiversity, improves soil health, and helps in sustainable farming practices.",
+    title: "The Magic of Vermicompost for Home and Farm",
+    description:
+      "Discover how our high-quality vermicompost enhances soil fertility, improves crop yields, and reduces dependency on chemical fertilizers.",
     image: assets.blog1,
-    date: "April 12, 2025",
+    date: "May 10, 2025",
     author: "Hariom Sharma",
   },
   {
     id: 2,
-    title: "Vermicompost: Nature’s Fertilizer",
-    content:
-      "Vermicompost is the result of organic matter breaking down in the presence of earthworms. This method produces a nutrient-rich fertilizer that promotes plant growth and soil health without harming the environment.",
+    title: "Transforming Waste: The Journey of Dung to Hawan Lakdi",
+    description:
+      "A behind-the-scenes look at how cow dung is transformed into eco-friendly, smokeless Hawan Lakdi used in spiritual rituals and farming.",
     image: assets.gsd_organics_uses_compost_scaled,
-    date: "April 10, 2025",
-    author: "Vishal Sharma",
+    date: "May 5, 2025",
+    author: "Sapna",
   },
   {
     id: 3,
-    title: "Gau Seva and Sustainability",
-    content:
-      "By caring for cows and using cow-based products, we not only ensure their well-being but also support a sustainable agricultural system. Cow dung, for example, can be used to produce natural fertilizers and energy.",
+    title: "From Cow Dung to Prosperity: Inside the Dung Cake Process",
+    description:
+      "Learn how traditional dung cakes, made using age-old methods, are providing sustainable fuel and revitalizing rural economies.",
     image: assets.news,
-    date: "April 5, 2025",
+    date: "April 29, 2025",
     author: "GSD Team",
   },
   {
     id: 4,
-    title: "Why CSR Should Support Rural Health",
-    content:
-      "Rural health is often underfunded. CSR initiatives focusing on rural health can bridge the gap, ensuring quality healthcare reaches those in remote areas. This can help in improving public health and saving lives.",
-    image: "https://source.unsplash.com/featured/?hospital,India",
-    date: "March 28, 2025",
+    title: "Sifting for Purity: Why Seiving Matters in Organic Compost",
+    description:
+      "Explore how our advanced seiving machines ensure only the purest, most nutrient-rich compost reaches your garden or field.",
+    image: assets.gsd555,
+    date: "April 22, 2025",
     author: "Rohit Verma",
+  },
+  {
+    id: 5,
+    title: "Grinding Green: How Our Machines Revolutionize Compost Prep",
+    description:
+      "Our grinding machines break down organic matter efficiently, speeding up decomposition and ensuring a uniform compost blend.",
+    image: assets.gsd666,
+    date: "April 15, 2025",
+    author: "Sapna",
+  },
+  {
+    id: 6,
+    title: "Organic Living: GSD Organics’ Role in India’s Green Future",
+    description:
+      "How our products support chemical-free agriculture, healthy living, and a return to sustainable, dharmic practices.",
+    image: assets.gsd888,
+    date: "April 8, 2025",
+    author: "Hariom Sharma",
   },
 ];
 
 const BlogDetailPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const blog = blogs.find((b) => b.id === parseInt(id));
 
   return (
     <section className="bg-white min-h-screen py-16 px-4">
       <div className="max-w-5xl mx-auto backdrop-blur-md bg-white/60 border border-gray-200 shadow-xl rounded-3xl p-8 md:p-12 transition duration-300 ease-in-out">
+        {/* Back Button */}
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-6 inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full hover:bg-blue-200 transition"
+        >
+          ← Back to Blogs
+        </button>
+
         {/* Title */}
         <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-800 mb-6">
           {blog?.title}
@@ -74,7 +101,7 @@ const BlogDetailPage = () => {
 
         {/* Content */}
         <p className="text-lg text-gray-700 leading-relaxed tracking-wide">
-          {blog?.content}
+          {blog?.description}
         </p>
       </div>
     </section>

@@ -52,7 +52,7 @@ const Home = () => {
           </div>
           <img
             className="w-full rounded-2xl shadow-lg object-cover z-0"
-            src={assets.organic}
+            src={assets.gsd666}
             alt="Vermicompost Organic Fertilizer"
           />
         </div>

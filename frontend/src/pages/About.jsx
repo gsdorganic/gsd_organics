@@ -77,7 +77,7 @@ const About = () => {
     <div className="bg-white text-gray-700">
 
       {/* Hero Image */}
-      <motion.div
+      {/* <motion.div
         className="w-full overflow-hidden"
         variants={fadeInVariant}
         initial="hidden"
@@ -89,7 +89,7 @@ const About = () => {
           alt="About GSD Organics"
           className="w-full h-auto md:h-[70vh] object-cover object-center rounded-b-3xl shadow-lg"
         />
-      </motion.div>
+      </motion.div> */}
 
       {/* Introduction */}
       <motion.section
@@ -138,7 +138,7 @@ const About = () => {
       >
         <img
           className="w-full md:max-w-[450px] rounded-2xl shadow-xl object-cover"
-          src={assets.vermicompost}
+          src={assets.gsd111}
           alt="About Section"
         />
         <div className="flex flex-col gap-6 text-gray-700 md:w-2/3 text-lg">
