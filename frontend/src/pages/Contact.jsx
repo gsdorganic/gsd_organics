@@ -68,7 +68,7 @@ const Contact = () => {
       >
         <img
           className="w-full md:max-w-sm rounded-xl shadow-xl object-cover"
-          src={assets.gsd666}
+          src={assets.gsd555}
           alt="GSD Store"
         />
         <div className="space-y-6 text-gray-800 w-full md:max-w-md">
