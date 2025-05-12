@@ -111,7 +111,7 @@ import satish from './satish.png';
 import deepak from './deepak.png';
 import tek from './tek.png';
 import gsd111 from './111.jpg';
-import gsd222 from './222.jpg';
+// import gsd222 from './222.jpg';
 import gsd333 from './333.jpg';
 import gsd444 from './444.jpg';
 import gsd555 from './555.jpg';
