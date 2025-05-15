@@ -44,7 +44,7 @@ const Home = () => {
         {/* Image Block */}
         <div className="w-full md:w-1/2 relative">
           <div className="absolute -top-6 -left-6 z-10 w-24 h-24 md:w-28 md:h-28 rounded-full bg-white/30 backdrop-blur-md border border-white/40 
-              flex flex-col items-center justify-center text-green-900 font-extrabold text-xs md:text-sm shadow-[6px_6px_25px_rgba(0,0,0,0.25)] 
+              flex flex-col items-center justify-center text-white font-extrabold text-xs md:text-sm shadow-[6px_6px_25px_rgba(0,0,0,0.25)] 
               transform -rotate-6 hover:rotate-0 transition-all duration-300 ease-in-out 
               before:content-[''] before:absolute before:inset-0 before:rounded-full before:shadow-[0_0_25px_6px_rgba(34,197,94,0.4)] before:z-[-1]">
             <span className="text-xl md:text-2xl leading-tight">5+</span>

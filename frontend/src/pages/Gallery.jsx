@@ -27,6 +27,12 @@ const Gallery = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // Ensures animations or images don't glitch on initial mount
+    setIsMounted(true);
+  }, []);
 
   const openModal = (index) => {
     setActiveIndex(index);
@@ -56,7 +62,7 @@ const Gallery = () => {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isModalOpen, activeIndex]);
+  }, [isModalOpen]);
 
   return (
     <>
@@ -67,9 +73,8 @@ const Gallery = () => {
       <motion.div
         className="p-6 md:p-10 bg-white text-gray-800"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={{ opacity: isMounted ? 1 : 0 }}
         transition={{ duration: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {images.map((imageUrl, index) => (
@@ -92,7 +97,6 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Modal */}
         {isModalOpen && activeIndex !== null && (
           <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4 transition-opacity duration-300 opacity-100">
             <button

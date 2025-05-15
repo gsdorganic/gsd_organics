@@ -78,10 +78,10 @@ const Contact = () => {
             near GSD Animal Hospital, Hodal, Haryana 121106
           </p>
           <p className="text-lg">
-            Tel: (455) 555-0134 <br />
-            Email: admin@gsdorganic.com
+            Tel: +91 - 9034344100, 9034344200 <br />
+            Email: gsdorganic@gmail.com
           </p>
-          <div>
+          {/* <div>
             <h3 className="text-xl font-semibold mt-6 mb-2">
               Careers at GSD Organics
             </h3>
@@ -89,7 +89,7 @@ const Contact = () => {
             <button className="bg-white border border-green-600 text-green-600 hover:bg-green-600 hover:text-white transition-all duration-300 px-5 py-2 rounded-md font-medium shadow-sm">
               Explore Jobs
             </button>
-          </div>
+          </div> */}
         </div>
       </motion.div>
 

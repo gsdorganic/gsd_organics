@@ -39,36 +39,36 @@ const teamMembers = [
     name: "Partyaksh Sharma",
     photo: assets.PNMS,
     title: "Co-Founder & Managing Director",
-    phone: "+91-9991775555",
-    email: "partyaksh@examp.com"
+    phone: "+91-9034344100",
+    email: "gsdorganic@gmail.com"
   },
   {
     name: "Krishan Kant",
-    photo: assets.organic,
+    photo: assets.kk,
     title: "Co-Founder & Chief Executive Officer",
-    phone: "+91-9876543211",
-    email: "krishan@example.com"
+    phone: "+91-9034344200",
+    email: "gsdorganic@gmail.com"
   },
   {
     name: "Brij Bhushan",
     photo: assets.bhusan,
     title: "Head of Marketing",
-    phone: "+91-9876543212",
-    email: "brij@example.com"
+    phone: "+91-9034354300",
+    email: "gsdorganic@gmail.com"
   },
   {
     name: "Yudhister Sharma",
     photo: assets.yud,
     title: "Operations Manager",
-    phone: "+91-9876543213",
-    email: "yudhist@example.com"
+    phone: "+91-9050174500",
+    email: "gsdorganic@gmail.com"
   },
   {
     name: "Vishal Sharma",
     photo: assets.vishal,
     title: "Social Media Manager",
-    phone: "+91-9876543214",
-    email: "vishal@example.com"
+    phone: "+91-9050174100",
+    email: "gsdorganic@gmail.com"
   },
 ];
 

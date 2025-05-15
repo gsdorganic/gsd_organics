@@ -14,7 +14,6 @@ const slides = [
 const Hero = () => {
   const [index, setIndex] = useState(0);
 
-  // Rotate slides every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
@@ -23,46 +22,50 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="flex flex-col sm:flex-row border border-gray-300 overflow-hidden">
-      {/* Left Side - Text */}
-      <motion.div
-        key={`text-${index}`}
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1.5, ease: "easeInOut" }}
-        className="w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0 px-4"
-      >
-        <div className="text-[#414141] text-center sm:text-left w-full max-w-[500px]">
-          <div className="flex items-center justify-center sm:justify-start gap-2 mb-3">
-            <p className="w-8 md:w-11 h-[2px] bg-green-500"></p>
-            <p className="font-medium text-sm md:text-base text-green-500">OUR MOTIVE</p>
-          </div>
+    <div className="w-full max-w-7xl mx-auto my-4 px-2 sm:px-6">
+      <div className="flex flex-col sm:flex-row items-center border border-gray-200 bg-white shadow-lg rounded-xl overflow-hidden">
+        
+        {/* Left Side - Text */}
+        <motion.div
+          key={`text-${index}`}
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="w-full sm:w-1/2 px-6 py-6 sm:py-10 text-center sm:text-left"
+        >
+          <p className="text-green-600 font-semibold text-xs sm:text-sm tracking-wide mb-2">
+            OUR MOTIVE
+          </p>
 
-          <h1 className="prata-regular text-3xl lg:text-5xl leading-relaxed min-h-[80px] text-[#e97d1a]">
+          <h1 className="prata-regular text-2xl sm:text-3xl md:text-4xl text-[#e97d1a] font-bold leading-tight mb-4 min-h-[70px]">
             {slides[index].text}
           </h1>
 
-          <div className="flex items-center justify-center sm:justify-start gap-2 mt-3">
-            <p className="font-semibold text-sm md:text-base text-green-500"><NavLink to={"/collection"}>SHOP NOW</NavLink></p>
-            <p className="w-8 md:w-11 h-[1px] bg-green-500"></p>
+          <div className="flex justify-center sm:justify-start">
+            <NavLink
+              to="/collection"
+              className="bg-green-600 text-white text-xs sm:text-sm font-medium px-4 py-2 rounded-full hover:bg-green-700 transition duration-300"
+            >
+              SHOP NOW
+            </NavLink>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* Right Side - Image */}
-      <motion.div
-        key={`image-${index}`}
-        initial={{ x: 100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1.5, ease: "easeInOut" }}
-        className="w-full sm:w-1/2 h-[350px] sm:h-[450px] relative bg-white"
-      >
-        <img
-          src={slides[index].image}
-          alt="hero"
-          className="absolute w-full h-full object-cover rounded"
-        />
-      </motion.div>
+        {/* Right Side - Image */}
+        <motion.div
+          key={`image-${index}`}
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="w-full sm:w-1/2 h-[220px] xs:h-[260px] sm:h-[400px] md:h-[450px] relative"
+        >
+          <img
+            src={slides[index].image}
+            alt="Hero Slide"
+            className="absolute w-full h-full object-cover"
+          />
+        </motion.div>
+      </div>
     </div>
   );
 };
