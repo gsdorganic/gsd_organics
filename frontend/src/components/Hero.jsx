@@ -22,7 +22,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[80vh] overflow-hidden">
+    <div className="relative w-full h-[40vh] sm:h-[80vh] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={slides[index].image}
