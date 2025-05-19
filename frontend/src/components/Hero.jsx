@@ -17,7 +17,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 5000); // 5s gives a bit more breath for smoothness
     return () => clearInterval(interval);
   }, []);
 
@@ -25,30 +25,29 @@ const Hero = () => {
     <div className="relative w-full h-[40vh] sm:h-[80vh] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
-          key={slides[index].image}
+          key={`slide-${index}`}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
           className="absolute inset-0"
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 1.1, opacity: 0 }}
-          transition={{ duration: 1 }}
         >
           <img
             src={slides[index].image}
             alt="Slide"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-opacity duration-1000"
           />
           <div className="absolute inset-0 bg-black/40" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Animated Text */}
       <AnimatePresence mode="wait">
         <motion.div
           key={`text-${index}`}
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -30, opacity: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
           className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
         >
           <p className="text-green-300 text-sm font-semibold tracking-wide mb-2">
