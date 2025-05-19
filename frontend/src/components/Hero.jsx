@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { assets } from "../assets/assets";
 import { NavLink } from "react-router-dom";
 
@@ -22,50 +22,49 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-7xl mx-auto my-4 px-2 sm:px-6">
-      <div className="flex flex-col sm:flex-row items-center border border-gray-200 bg-white shadow-lg rounded-xl overflow-hidden">
-        
-        {/* Left Side - Text */}
+    <div className="relative w-full h-[80vh] overflow-hidden">
+      <AnimatePresence mode="wait">
         <motion.div
-          key={`text-${index}`}
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="w-full sm:w-1/2 px-6 py-6 sm:py-10 text-center sm:text-left"
-        >
-          <p className="text-green-600 font-semibold text-xs sm:text-sm tracking-wide mb-2">
-            OUR MOTIVE
-          </p>
-
-          <h1 className="prata-regular text-2xl sm:text-3xl md:text-4xl text-[#e97d1a] font-bold leading-tight mb-4 min-h-[70px]">
-            {slides[index].text}
-          </h1>
-
-          <div className="flex justify-center sm:justify-start">
-            <NavLink
-              to="/collection"
-              className="bg-green-600 text-white text-xs sm:text-sm font-medium px-4 py-2 rounded-full hover:bg-green-700 transition duration-300"
-            >
-              SHOP NOW
-            </NavLink>
-          </div>
-        </motion.div>
-
-        {/* Right Side - Image */}
-        <motion.div
-          key={`image-${index}`}
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="w-full sm:w-1/2 h-[220px] xs:h-[260px] sm:h-[400px] md:h-[450px] relative"
+          key={slides[index].image}
+          className="absolute inset-0"
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 1.1, opacity: 0 }}
+          transition={{ duration: 1 }}
         >
           <img
             src={slides[index].image}
-            alt="Hero Slide"
-            className="absolute w-full h-full object-cover"
+            alt="Slide"
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-black/40" />
         </motion.div>
-      </div>
+      </AnimatePresence>
+
+      {/* Animated Text */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={`text-${index}`}
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -30, opacity: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
+        >
+          <p className="text-green-300 text-sm font-semibold tracking-wide mb-2">
+            OUR MOTIVE
+          </p>
+          <h1 className="text-3xl sm:text-5xl font-bold mb-6 drop-shadow-xl">
+            {slides[index].text}
+          </h1>
+          <NavLink
+            to="/collection"
+            className="bg-green-600 hover:bg-green-700 transition duration-300 px-6 py-3 text-sm sm:text-base rounded-full shadow-lg"
+          >
+            SHOP NOW
+          </NavLink>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };

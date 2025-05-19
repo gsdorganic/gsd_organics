@@ -54,3 +54,13 @@ a.active hr {
     color: white;
   }
 }
+
+@layer utilities {
+  @media (min-width: 312px) and (max-width: 620px) {
+    .img-adjust {
+      height: auto !important;
+      aspect-ratio: 4 / 3 !important;
+      object-fit: contain !important;
+    }
+  }
+}

@@ -201,13 +201,14 @@ const About = () => {
               key={index}
               className="rounded overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              <div className="w-full h-48 bg-gray-200">
-                <img
-                  src={member.photo}
-                  alt={member.name}
-                  className="w-full object-cover hover:bg-orange-200 transition-all duration-500"
-                />
-              </div>
+          <div className="relative w-full bg-gray-200">
+  <img
+    src={member.photo}
+    alt={member.name}
+    className="w-full h-48 sm:h-48 object-cover transition-all duration-500 hover:bg-orange-200 img-adjust"
+  />
+</div>
+
               <div className="bg-white text-left p-4 flex flex-col justify-between h-full">
                 <h3 className="text-md font-semibold text-green-800">{member.name}</h3>
                 <p className="text-sm text-gray-600 mb-2">{member.title}</p>
