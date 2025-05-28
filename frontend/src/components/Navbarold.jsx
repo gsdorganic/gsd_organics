@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 import { useContext, useState, useEffect, useRef } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { motion, AnimatePresence } from "framer-motion";
-import WhatsAppButton from "./WhatsAppButton";
+// import WhatsAppButton from "./WhatsAppButton";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -216,7 +216,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      <WhatsAppButton />
+      {/* <WhatsAppButton /> */}
     </motion.div>
     </div>
   );
