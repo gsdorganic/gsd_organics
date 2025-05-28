@@ -110,7 +110,7 @@ import Satyam from './Satyam.png';
 import satish from './satish.png';
 import deepak from './deepak.png';
 import tek from './tek.png';
-import gsd111 from './111.jpg';
+import gsd111 from './111.JPG';
 import gsd222 from './222.webp';
 import gsd333 from './333.webp';
 import gsd444 from './444.webp';
