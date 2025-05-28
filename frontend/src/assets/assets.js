@@ -115,9 +115,9 @@ import gsd222 from './222.webp';
 import gsd333 from './333.webp';
 import gsd444 from './444.webp';
 import gsd555 from './555.webp';
-import gsd666 from './666.jpg';
-import gsd777 from './777.jpg';
-import gsd888 from './888.jpg';
+import gsd666 from './666.JPG';
+import gsd777 from './777.JPG';
+import gsd888 from './888.JPG';
 import kk from './kk.png';
 import home from './home.avif';
 
