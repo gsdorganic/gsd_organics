@@ -4,6 +4,7 @@ import { assets } from "../assets/assets";
 import Title from "../components/Title";
 import ProductItem from "../components/ProductItem";
 import { motion } from "framer-motion"; // Framer Motion
+import Navbarold from "../components/Navbarold"; // Importing the old Navbar component
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -80,7 +81,10 @@ const Collection = () => {
   }, [sortType]);
 
   return (
+    <>
+    <Navbarold />
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
+      <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       {/* filter Options */}
       <div className="min-w-60 hidden">
         <p
@@ -167,7 +171,9 @@ const Collection = () => {
           ))}
         </motion.div>
       </div>
+      </div>
     </div>
+    </>
   );
 };
 

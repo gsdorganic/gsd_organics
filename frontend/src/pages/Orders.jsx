@@ -3,6 +3,8 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import axios from "axios";
 import { motion } from "framer-motion"; // Import Framer Motion
+// import Navbar from "../components/Navbar";
+import Navbarold from "../components/Navbarold"; // Importing the old Navbar component
 
 const Orders = () => {
   const { backendUrl, token, currency } = useContext(ShopContext);
@@ -42,6 +44,9 @@ const Orders = () => {
   }, [token]);
 
   return (
+    <>
+    <Navbarold />
+    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
     <div className="border-t pt-16">
       <motion.div
         className="text-2xl mb-4"
@@ -100,6 +105,8 @@ const Orders = () => {
         ))}
       </motion.div>
     </div>
+    </div>
+    </>
   );
 };
 

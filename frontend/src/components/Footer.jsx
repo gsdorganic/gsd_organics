@@ -16,6 +16,7 @@ const scrollToTop = () => {
 
 const Footer = () => {
   return (
+     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
     <div className="px-4 md:px-10 bg-white">
       {/* Footer Main */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 my-10 mt-40 text-sm">
@@ -107,6 +108,7 @@ const Footer = () => {
           © 2025 gsdorganic.com - All Rights Reserved.
         </p>
       </div>
+    </div>
     </div>
   );
 };

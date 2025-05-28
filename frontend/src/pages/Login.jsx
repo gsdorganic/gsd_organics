@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Navbarold from "../components/Navbarold"; // Importing the old Navbar component
 
 const Login = () => {
   const [currentState, setCurrentState] = useState("Login");
@@ -62,6 +63,8 @@ const Login = () => {
   }, [token]);
 
   return (
+    <>
+    <Navbarold />
     <form
       onSubmit={onSubmitHandler}
       className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800"
@@ -121,6 +124,7 @@ const Login = () => {
         {currentState === "Login" ? "Sign In" : "Sign Up"}
       </button>
     </form>
+    </>
   );
 };
 

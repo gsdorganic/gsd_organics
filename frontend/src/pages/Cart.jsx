@@ -4,6 +4,7 @@ import Title from "../components/Title";
 import { assets } from "../assets/assets";
 import CartTotal from "../components/CartTotal";
 import { motion } from "framer-motion"; // Import framer motion
+import Navbarold from "../components/Navbarold"; // Importing the old Navbar component
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity, navigate } =
@@ -30,6 +31,9 @@ const Cart = () => {
   }, [cartItems, products]);
 
   return (
+    <>
+    <Navbarold />
+    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
     <div className="border-t pt-14">
       <motion.div
         className="text-2xl mb-3"
@@ -131,6 +135,8 @@ const Cart = () => {
         </div>
       </motion.div>
     </div>
+    </div>
+    </>
   );
 };
 

@@ -4,6 +4,8 @@ import CartTotal from "../components/CartTotal";
 import Title from "../components/Title";
 import { ShopContext } from "../context/ShopContext";
 import { toast } from "react-toastify";
+import Navbarold from "../components/Navbarold"; // Importing the old Navbar component
+// import Navbar from "../components/Navbar";
 
 const PlaceOrder = () => {
   const [method, setMethod] = useState("cod");
@@ -101,6 +103,9 @@ const PlaceOrder = () => {
   };
 
   return (
+    <>
+    <Navbarold />
+    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
     <form
       onSubmit={(e) => e.preventDefault()}
       className="flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t"
@@ -264,6 +269,8 @@ const PlaceOrder = () => {
         </div>
       </div>
     </form>
+    </div>
+    </>
   );
 };
 

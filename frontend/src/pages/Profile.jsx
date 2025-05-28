@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
+import Navbarold from "../components/Navbarold"; // Importing the old Navbar component
 
 const Profile = () => {
   const { user, userEmail } = useContext(ShopContext);
 
   return (
+    <>
+    <Navbarold />
     <div className="min-h-screen bg-white flex items-center justify-center py-10 px-4 sm:px-6 lg:px-8">
       <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 max-w-2xl w-full space-y-8">
         {/* Header */}
@@ -73,6 +76,7 @@ const Profile = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

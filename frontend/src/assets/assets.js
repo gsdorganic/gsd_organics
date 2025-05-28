@@ -98,7 +98,7 @@ import about from './about.jpg'
 import vermicompost from './vermicompost.jpg'
 import project_bg from './project-bg.png'
 import blog1 from './blog1.jpeg'
-import earth2 from "./earth2.jpg";
+import earth2 from "./earth2.webp";
 import earth3 from "./earth3.jpg";
 import earth4 from "./earth4.jpg";
 import earth5 from "./earth5.jpg";
@@ -110,15 +110,16 @@ import Satyam from './Satyam.png';
 import satish from './satish.png';
 import deepak from './deepak.png';
 import tek from './tek.png';
-import gsd111 from './111.JPG';
-import gsd222 from './222.JPG';
-import gsd333 from './333.JPG';
-import gsd444 from './444.JPG';
-import gsd555 from './555.JPG';
-import gsd666 from './666.JPG';
-import gsd777 from './777.JPG';
-import gsd888 from './888.JPG';
+import gsd111 from './111.jpg';
+import gsd222 from './222.webp';
+import gsd333 from './333.webp';
+import gsd444 from './444.webp';
+import gsd555 from './555.webp';
+import gsd666 from './666.jpg';
+import gsd777 from './777.jpg';
+import gsd888 from './888.jpg';
 import kk from './kk.png';
+import home from './home.avif';
 
 
 
@@ -186,7 +187,8 @@ gsd555,
 gsd666,
 gsd777,
 gsd888,
-kk
+kk,
+home
 };
 
 export const products = [

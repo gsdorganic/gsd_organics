@@ -2,7 +2,8 @@ import React from "react";
 
 const WhatsAppButton = () => {
   const phoneNumber = "919050174500"; // Replace with your number
-  const message = "🌿 Namaste! Thank you for visiting GSD Organics — your trusted source for pure and natural organic products. How may we assist you today? 😊";
+  const message =
+    "🌿 Namaste! Thank you for visiting GSD Organics — your trusted source for pure and natural organic products. How may we assist you today? 😊";
 
   const handleClick = () => {
     const encodedMessage = encodeURIComponent(message);
@@ -13,12 +14,12 @@ const WhatsAppButton = () => {
   return (
     <button
       onClick={handleClick}
-      className="fixed bottom-10 left-10 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+      className="fixed bottom-10 left-10 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-colors duration-300 z-50"
       aria-label="Chat on WhatsApp"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-10 w-10" // Increased from h-6 w-6
+        className="h-10 w-10"
         viewBox="0 0 24 24"
         fill="currentColor"
       >

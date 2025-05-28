@@ -3,6 +3,8 @@ import Title from "../components/Title";
 import { useState, useRef } from "react";
 import { toast } from "react-toastify";
 import { motion, useInView } from "framer-motion";
+// import Navbar from "../components/Navbar";
+import Navbarold from "../components/Navbarold";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -46,6 +48,8 @@ const Contact = () => {
   const formInView = useInView(formRef, { once: true, margin: "-100px" });
 
   return (
+    <>
+    <Navbarold />
     <div className="pt-14 px-4 md:px-10">
       {/* Title */}
       <motion.div
@@ -158,6 +162,7 @@ const Contact = () => {
         </form>
       </motion.div>
     </div>
+    </>
   );
 };
 

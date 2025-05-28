@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { motion, useInView } from "framer-motion";
 import Title from "../components/Title";
+import Navbarold from "../components/Navbarold"; // Importing the old Navbar component
+// import Navbar from "../components/Navbar";
 
 const blogs = [
   {
@@ -64,6 +66,9 @@ const blogs = [
 
 const BlogPage = () => {
   return (
+    <>
+    <Navbarold />
+    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
     <section className="bg-white py-10">
       <div className="max-w-7xl mx-auto px-4">
         <h1 className="text-3xl font-bold text-center mb-6  ">
@@ -110,6 +115,8 @@ const BlogPage = () => {
         </div>
       </div>
     </section>
+    </div>
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ import NewsletterBox from "../components/NewsletterBox";
 import Testimonials from "../components/Testimonials";
 import { motion } from "framer-motion";
 import VideoSlider from "./VideoSlider";
+import Navbarold from "../components/Navbarold"; // Importing the old Navbar component
 
 // Animation variant
 const fadeInVariant = {
@@ -74,7 +75,10 @@ const teamMembers = [
 
 const About = () => {
   return (
+    <>
+    <Navbarold />
     <div className="bg-white text-gray-700">
+      <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
       {/* Hero Image */}
       {/* <motion.div
@@ -234,7 +238,9 @@ const About = () => {
 
       {/* Newsletter */}
       <NewsletterBox />
+      </div>
     </div>
+    </>
   );
 };
 

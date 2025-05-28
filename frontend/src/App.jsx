@@ -22,10 +22,11 @@ const BlogDetailPage = lazy(() => import("./pages/BlogDetailPage"));
 
 const App = () => {
   return (
-    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div>
+      <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       <ToastContainer />
-      <Navbar />
       <SearchBar />
+      </div>
       <Suspense fallback={<div className="text-center p-10">Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />

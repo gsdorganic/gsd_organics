@@ -3,6 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import { useContext, useEffect, useState } from "react";
 import { assets } from "../assets/assets";
 import RelatedProducts from "../components/RelatedProducts";
+import Navbarold from "../components/Navbarold"; // Importing the old Navbar component
 
 const Product = () => {
   const { productId } = useParams();
@@ -26,6 +27,9 @@ const Product = () => {
   }, [productId, products]);
 
   return productData ? (
+    <>
+    <Navbarold />
+    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
       {/* Product Data */}
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
@@ -125,6 +129,8 @@ const Product = () => {
         subCategory={productData.subCategory}
       />
     </div>
+    </div>
+    </>
   ) : (
     <div className="opacity-0"></div>
   );

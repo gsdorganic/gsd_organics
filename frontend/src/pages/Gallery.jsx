@@ -3,6 +3,8 @@ import { assets } from "../assets/assets";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Title from "../components/Title";
 import { motion } from "framer-motion";
+import Navbarold from "../components/Navbarold";
+// import Navbar from "../components/Navbar";
 
 const Gallery = () => {
   const images = [
@@ -66,6 +68,8 @@ const Gallery = () => {
 
   return (
     <>
+    <Navbarold />
+    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       <div className="text-center text-2xl pt-10 border-t">
         <Title text1={"OUR"} text2={"GALLERY"} />
       </div>
@@ -128,6 +132,7 @@ const Gallery = () => {
           </div>
         )}
       </motion.div>
+      </div>
     </>
   );
 };

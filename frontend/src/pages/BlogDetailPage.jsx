@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
+import Navbarold from "../components/Navbarold";
 
 const blogs = [
   {
@@ -65,6 +66,9 @@ const BlogDetailPage = () => {
   const blog = blogs.find((b) => b.id === parseInt(id));
 
   return (
+    <>
+    <Navbarold />
+    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
     <section className="bg-white min-h-screen py-16 px-4">
       <div className="max-w-5xl mx-auto backdrop-blur-md bg-white/60 border border-gray-200 shadow-xl rounded-3xl p-8 md:p-12 transition duration-300 ease-in-out">
         {/* Back Button */}
@@ -105,6 +109,8 @@ const BlogDetailPage = () => {
         </p>
       </div>
     </section>
+    </div>
+    </>
   );
 };
 
