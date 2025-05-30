@@ -9,7 +9,6 @@ const slides = [
   { image: assets.gsd333, text: "Grown with Care" },
   { image: assets.gsd444, text: "Sustainable Choices" },
   { image: assets.gsd555, text: "Pure, Honest & Healthy" },
-  { image: assets.testing, text: "Pure, Honest testing & Healthy" },
 ];
 
 const Hero = () => {
