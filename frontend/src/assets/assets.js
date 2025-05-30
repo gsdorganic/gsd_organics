@@ -120,6 +120,7 @@ import gsd777 from './777.JPG';
 import gsd888 from './888.JPG';
 import kk from './kk.png';
 import home from './home.avif';
+import testing from './testing.jpg';
 
 
 
@@ -188,7 +189,8 @@ gsd666,
 gsd777,
 gsd888,
 kk,
-home
+home,
+testing
 };
 
 export const products = [

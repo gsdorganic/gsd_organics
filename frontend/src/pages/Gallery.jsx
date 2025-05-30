@@ -25,6 +25,7 @@ const Gallery = () => {
     assets.nine,
     assets.ten,
     assets.eleven,
+    assets.testing,
   ];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
