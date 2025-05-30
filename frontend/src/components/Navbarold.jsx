@@ -197,7 +197,7 @@ const Navbar = () => {
               </div>
               {[
                 { path: "/", label: "HOME" },
-                { path: "/collection", label: "COLLECTION" },
+                { path: "/collection", label: "PRODUCTS" },
                 { path: "/Gallery", label: "GALLERY" },
                 { path: "/about", label: "ABOUT" },
                 { path: "/blog", label: "BLOGS" },
